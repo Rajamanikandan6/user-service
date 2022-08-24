@@ -19,7 +19,7 @@ public class UserServiceController {
     BCryptPasswordEncoder bCryptPasswordEncoder;
     @PostMapping("/users")
     public ResponseEntity<User> createUser(@RequestBody User user){
-        user.setPassword(this.bCryptPasswordEncoder.encode(user.getPassword()));
+//        user.setPassword(this.bCryptPasswordEncoder.encode(user.getPassword()));
         User userDetails = userService.createUserDetails(user);
         return ResponseEntity.status(HttpStatus.CREATED).body(userDetails);
     }
