@@ -7,10 +7,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.maveric.userservice.model.User;
 
+import javax.validation.Valid;
+
 @RestController
+@RequestMapping("/api/v1")
 public class UserServiceController {
     @Autowired
     UserService userService;
@@ -18,8 +22,8 @@ public class UserServiceController {
     @Autowired
     BCryptPasswordEncoder bCryptPasswordEncoder;
     @PostMapping("/users")
-    public ResponseEntity<User> createUser(@RequestBody User user){
-//        user.setPassword(this.bCryptPasswordEncoder.encode(user.getPassword()));
+    public ResponseEntity<User> createUser(@Valid @RequestBody User user){
+        user.setPassword(this.bCryptPasswordEncoder.encode(user.getPassword()));
         User userDetails = userService.createUserDetails(user);
         return ResponseEntity.status(HttpStatus.CREATED).body(userDetails);
     }

@@ -1,22 +1,18 @@
-package com.maveric.userservice.model;
+package com.maveric.userservice.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Getter;
-import lombok.Setter;
+import com.maveric.userservice.model.User;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 
-@Getter
-@Setter
-@Entity
-@Table(name = "user")
-public class User {
-
-    @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private int id;
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class UserRequest extends User {
 
     @NotNull(message = "firstname shouldn't be empty")
     private String firstName;
