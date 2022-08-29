@@ -1,6 +1,7 @@
 package com.maveric.userservice.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.maveric.userservice.constant.Gender;
 import com.maveric.userservice.model.User;
 import com.maveric.userservice.repository.UserRepository;
 import com.maveric.userservice.service.UserService;
@@ -52,7 +53,7 @@ public class UserServiceControllerTest {
         user.setLastName("s");
         user.setEmail("raja@gmail.com");
         user.setPassword("12345");
-        user.setGender("male");
+        user.setGender(Gender.MALE);
         user.setDateOfBirth("2022-02-02");
         user.setAddress("pollachi");
         user.setPhoneNumber("9965571147");
@@ -77,7 +78,7 @@ public class UserServiceControllerTest {
         user.setLastName("s");
         user.setEmail("raja@gmail.com");
         user.setPassword("12345");
-        user.setGender("male");
+        user.setGender(Gender.MALE);
         user.setDateOfBirth("2022-02-02");
         user.setAddress("pollachi");
         user.setPhoneNumber("9965571147");

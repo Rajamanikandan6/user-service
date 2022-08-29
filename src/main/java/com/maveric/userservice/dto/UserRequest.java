@@ -1,6 +1,7 @@
 package com.maveric.userservice.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.maveric.userservice.constant.Gender;
 import com.maveric.userservice.model.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -32,7 +33,7 @@ public class UserRequest extends User {
 
     private String dateOfBirth;
 
-    private String gender;
+    private Gender gender;
 
     private String role;
 

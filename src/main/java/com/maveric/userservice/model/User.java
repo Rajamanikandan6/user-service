@@ -1,6 +1,7 @@
 package com.maveric.userservice.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.maveric.userservice.constant.Gender;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -36,7 +37,8 @@ public class User {
 
     private String dateOfBirth;
 
-    private String gender;
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
 
     private String role;
 

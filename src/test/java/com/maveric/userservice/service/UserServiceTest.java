@@ -1,5 +1,6 @@
 package com.maveric.userservice.service;
 
+import com.maveric.userservice.constant.Gender;
 import com.maveric.userservice.model.User;
 import com.maveric.userservice.repository.UserRepository;
 import org.junit.jupiter.api.Test;
@@ -39,7 +40,7 @@ public class UserServiceTest {
         user.setLastName("s");
         user.setEmail("raja@gmail.com");
         user.setPassword("12345");
-        user.setGender("male");
+        user.setGender(Gender.MALE);
         user.setDateOfBirth("2022-02-02");
         user.setAddress("pollachi");
         user.setPhoneNumber("9965571147");

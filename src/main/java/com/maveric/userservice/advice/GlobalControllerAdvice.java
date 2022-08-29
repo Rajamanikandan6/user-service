@@ -1,5 +1,6 @@
 package com.maveric.userservice.advice;
 
+import com.maveric.userservice.constant.ErrorMessageConstants;
 import com.maveric.userservice.dto.Error;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,7 +10,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.client.HttpServerErrorException;
 
 @RestControllerAdvice
-public class MyControllerAdvice {
+public class GlobalControllerAdvice {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Error> internalServerError(Exception exception){
@@ -19,7 +20,7 @@ public class MyControllerAdvice {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Error>  handleNullInput(MethodArgumentNotValidException methodArgumentNotValidException){
-        Error error = getError("Input is missing or not valid",String.valueOf(HttpStatus.BAD_REQUEST));
+        Error error = getError(ErrorMessageConstants.MISSING_INPUT,String.valueOf(HttpStatus.BAD_REQUEST));
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
     }
 
