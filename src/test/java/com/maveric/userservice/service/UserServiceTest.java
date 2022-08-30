@@ -27,9 +27,9 @@ public class UserServiceTest {
 
     @Test
     void shouldReturnUserWhenGetUserInvoked() throws Exception {
-        when(mockedUserRepository.findById(1)).thenReturn(Optional.of(getSampleUser()));
+        when(mockedUserRepository.findByEmail("shreeharsha@gmail.com")).thenReturn(Optional.of(getSampleUser()));
 
-        Optional<User> user = userService.getUserDetails(1);
+        Optional<User> user = userService.getUserDetailsByEmail("shreeharsha@gmail.com");
 
         assertNotNull(user);
         assertSame(user.get().getEmail(),getSampleUser().getEmail());

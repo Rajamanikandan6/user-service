@@ -19,9 +19,9 @@ public class UserServiceController {
     @Autowired
     UserService userService;
 
-    @GetMapping("/users/{userId}")
-    public ResponseEntity<Optional<User>> getUserDetails(@PathVariable int userId){
-        Optional<User> userDetails = userService.getUserDetails(userId);
+    @GetMapping("/users/getUserByEmail/{emailId}")
+    public ResponseEntity<Optional<User>> getUserDetailsByEmail(@PathVariable String emailId){
+        Optional<User> userDetails = userService.getUserDetailsByEmail(emailId);
         return ResponseEntity.status(HttpStatus.OK).body(userDetails);
     }
 }
