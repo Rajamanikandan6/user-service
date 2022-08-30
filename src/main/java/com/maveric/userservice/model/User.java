@@ -1,10 +1,13 @@
 package com.maveric.userservice.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.maveric.userservice.constant.Gender;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
 
 @Getter
 @Setter
@@ -16,21 +19,26 @@ public class User {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private int id;
 
+    @NotNull(message = "firstname shouldn't be empty")
     private String firstName;
 
     private String middleName;
 
+    @NotNull(message = "lastname shouldn't be empty")
     private String lastName;
 
+    @Email
     private String email;
 
+    @NotNull(message = "phoneNumber shouldn't be empty")
     private String phoneNumber;
 
     private String address;
 
     private String dateOfBirth;
 
-    private String gender;
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
 
     private String role;
 

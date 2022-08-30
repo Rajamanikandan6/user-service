@@ -1,5 +1,6 @@
 package com.maveric.userservice.service;
 
+import com.maveric.userservice.exception.UserNotFoundException;
 import com.maveric.userservice.model.User;
 import com.maveric.userservice.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,7 @@ public class UserService {
     @Autowired
     UserRepository userRepository;
 
-    public User getUserDetails(User user,int userId){
+    public User updateUserDetails(User user,int userId){
         Optional<User> userFromDb = userRepository.findById(userId);
         if(userFromDb.isPresent()) {
             User newUser = userFromDb.get();
@@ -26,7 +27,8 @@ public class UserService {
             newUser.setGender(user.getGender());
 
             return userRepository.save(newUser);
+        }else{
+            throw new UserNotFoundException(userId);
         }
-        return null;
     }
 }
