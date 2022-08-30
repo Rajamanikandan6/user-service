@@ -17,7 +17,7 @@ public class GlobalControllerAdvice {
     }
 
     @ExceptionHandler(UserNotFoundException.class)
-    public ResponseEntity<Error>  UserNotFoundException(UserNotFoundException userNotFoundException){
+    public ResponseEntity<Error>  userNotFoundException(UserNotFoundException userNotFoundException){
         Error error = getError(userNotFoundException.getMessage(),String.valueOf(HttpStatus.NOT_FOUND.value()));
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
     }

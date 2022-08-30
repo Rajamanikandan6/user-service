@@ -24,7 +24,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 
 @WebMvcTest(UserServiceController.class)
 @Tag("Integration tests")
-public class UserServiceControllerTest {
+class UserServiceControllerTest {
     private static final String API_V1_USERS = "/api/v1/users";
 
     @Autowired
@@ -37,7 +37,7 @@ public class UserServiceControllerTest {
     private UserRepository userRepository;
 
     @Test
-    public void shouldGetUserWhenRequestMadeToGetUser() throws Exception{
+    void shouldGetUserWhenRequestMadeToGetUser() throws Exception{
         mvc.perform(get(API_V1_USERS+"/"+1))
                 .andExpect(status().isOk())
                 .andDo(print());
@@ -45,7 +45,7 @@ public class UserServiceControllerTest {
     }
 
     @Test
-    public void shouldReturnInternalServerWhenDbReturnsError() throws Exception{
+    void shouldReturnInternalServerWhenDbReturnsError() throws Exception{
         when(userService.getUserDetails(12)).thenThrow(new UserNotFoundException(12));
         mvc.perform(get(API_V1_USERS+"/"+12))
                 .andExpect(status().isNotFound())

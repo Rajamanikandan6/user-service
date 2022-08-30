@@ -26,7 +26,7 @@ public class UserServiceTest {
     private UserService userService;
 
     @Test
-    public void shouldReturnUserWhenGetUserInvoked() throws Exception {
+    void shouldReturnUserWhenGetUserInvoked() throws Exception {
         when(mockedUserRepository.findById(1)).thenReturn(Optional.of(getSampleUser()));
 
         Optional<User> user = userService.getUserDetails(1);
