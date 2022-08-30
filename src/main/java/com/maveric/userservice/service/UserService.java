@@ -1,8 +1,13 @@
 package com.maveric.userservice.service;
 
+import com.maveric.userservice.constant.SuccessMessageConstant;
+import com.maveric.userservice.exception.UserNotFoundException;
+import com.maveric.userservice.model.User;
 import com.maveric.userservice.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -10,7 +15,9 @@ public class UserService {
     UserRepository userRepository;
 
     public String deleteUser(int userId){
+        Optional<User> user = userRepository.findById(userId);
+        user.orElseThrow(() -> new UserNotFoundException(userId));
         userRepository.deleteById(userId);
-        return "User Deleted Successfully";
+        return SuccessMessageConstant.SUCCESS_DELETE_USER;
     }
 }
