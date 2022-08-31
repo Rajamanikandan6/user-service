@@ -1,18 +1,13 @@
 package com.maveric.userservice.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.maveric.userservice.constant.Gender;
 import com.maveric.userservice.exception.UserNotFoundException;
-import com.maveric.userservice.model.User;
 import com.maveric.userservice.repository.UserRepository;
 import com.maveric.userservice.service.UserService;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
@@ -38,7 +33,7 @@ class UserServiceControllerTest {
 
     @Test
     void shouldGetUserWhenRequestMadeToGetUser() throws Exception{
-        mvc.perform(get(API_V1_USERS+"/"+1))
+        mvc.perform(get(API_V1_USERS+"/2c9cf08182f36d5a0182f3731f210000"))
                 .andExpect(status().isOk())
                 .andDo(print());
 
@@ -46,8 +41,8 @@ class UserServiceControllerTest {
 
     @Test
     void shouldReturnInternalServerWhenDbReturnsError() throws Exception{
-        when(userService.getUserDetails(12)).thenThrow(new UserNotFoundException(12));
-        mvc.perform(get(API_V1_USERS+"/"+12))
+        when(userService.getUserDetails("2c9cf08182f36d5a0182f3731f210000")).thenThrow(new UserNotFoundException("2c9cf08182f36d5a0182f3731f210000"));
+        mvc.perform(get(API_V1_USERS+"/2c9cf08182f36d5a0182f3731f210000"))
                 .andExpect(status().isNotFound())
                 .andDo(print());
 

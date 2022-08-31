@@ -1,6 +1,6 @@
 package com.maveric.userservice.controller;
 
-import com.maveric.userservice.model.User;
+import com.maveric.userservice.dto.UserDto;
 import com.maveric.userservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Optional;
-
 @RestController
 @RequestMapping("/api/v1")
 public class UserServiceController {
@@ -20,8 +18,8 @@ public class UserServiceController {
     UserService userService;
 
     @GetMapping("/users/{userId}")
-    public ResponseEntity<Optional<User>> getUserDetails(@PathVariable int userId){
-        Optional<User> userDetails = userService.getUserDetails(userId);
+    public ResponseEntity<UserDto> getUserDetails(@PathVariable String userId){
+        UserDto userDetails = userService.getUserDetails(userId);
         return ResponseEntity.status(HttpStatus.OK).body(userDetails);
     }
 }
