@@ -42,7 +42,7 @@ public class UserServiceControllerTest {
 
     @Test
     public void shouldUpdateUserWhenRequestMadeToUpdateUser() throws Exception{
-        mvc.perform(put(API_V1_USERS+"/"+1).contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(getSampleUser())))
+        mvc.perform(put(API_V1_USERS+"/asfsa09hsafdsf88").contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(getSampleUser())))
                 .andExpect(status().isCreated())
                 .andDo(print());
 
@@ -59,28 +59,19 @@ public class UserServiceControllerTest {
         user.setDateOfBirth("2022-02-02");
         user.setAddress("pollachi");
         user.setPhoneNumber("9965571147");
-        mvc.perform(put(API_V1_USERS+"/"+1).contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(user)))
+        mvc.perform(put(API_V1_USERS+"/asd6fasfa7fa").contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(user)))
                 .andExpect(status().isBadRequest())
                 .andDo(print());
     }
 
     @Test
     public void shouldReturnInternalServerWhenDbReturnsError() throws Exception{
-        when(userService.updateUserDetails(getSampleUser(),215)).thenThrow(new IllegalArgumentException());
-        mvc.perform(put(API_V1_USERS+"/"+215).contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(getSampleUser())))
+        when(userService.updateUserDetails(getSampleUser(),"ufda876sagf786")).thenThrow(new IllegalArgumentException());
+        mvc.perform(put(API_V1_USERS+"/ewetwet443466").contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(getSampleUser())))
                 .andExpect(status().isInternalServerError())
                 .andDo(print());
 
     }
-
-    @Test
-    public void shouldReturnTransactionExceptionWhenDbReturnsError() throws Exception{
-        when(userService.updateUserDetails(getSampleUser(),1)).thenThrow(new TransactionSystemException("DB error"));
-        mvc.perform(put(API_V1_USERS+"/"+1).contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(getSampleUser())))
-                .andExpect(status().is5xxServerError())
-                .andDo(print());
-    }
-
 
     public User getSampleUser(){
         User user = new User();

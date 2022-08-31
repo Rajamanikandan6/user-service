@@ -1,5 +1,7 @@
 package com.maveric.userservice.service;
 
+import com.maveric.userservice.converter.ModelDtoConverter;
+import com.maveric.userservice.dto.UserDto;
 import com.maveric.userservice.exception.UserNotFoundException;
 import com.maveric.userservice.model.User;
 import com.maveric.userservice.repository.UserRepository;
@@ -13,7 +15,10 @@ public class UserService {
     @Autowired
     UserRepository userRepository;
 
-    public User updateUserDetails(User user,int userId){
+    @Autowired
+    ModelDtoConverter modelDtoConverter;
+
+    public UserDto updateUserDetails(User user, String userId){
         Optional<User> userFromDb = userRepository.findById(userId);
         if(userFromDb.isPresent()) {
             User newUser = userFromDb.get();
@@ -26,7 +31,7 @@ public class UserService {
             newUser.setDateOfBirth(user.getDateOfBirth());
             newUser.setGender(user.getGender());
 
-            return userRepository.save(newUser);
+            return modelDtoConverter.entityToDto(userRepository.save(newUser));
         }else{
             throw new UserNotFoundException(userId);
         }

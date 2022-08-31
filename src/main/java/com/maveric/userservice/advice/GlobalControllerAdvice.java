@@ -34,12 +34,6 @@ public class GlobalControllerAdvice {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
     }
 
-    @ExceptionHandler(TransactionSystemException.class)
-    public ResponseEntity<Error> requestKeyError(TransactionSystemException transactionSystemException){
-        Error error = getError(ErrorMessageConstants.REQUEST_KEY_ERROR,String.valueOf(HttpStatus.BAD_REQUEST.value()));
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
-    }
-
     @ExceptionHandler(HttpServerErrorException.ServiceUnavailable.class)
     public ResponseEntity<Error>  serviceUnavailable(HttpServerErrorException.ServiceUnavailable serviceUnavailable){
         Error error = getError(String.valueOf(serviceUnavailable.getMessage()),String.valueOf(HttpStatus.SERVICE_UNAVAILABLE));
