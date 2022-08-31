@@ -16,6 +16,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.TransactionSystemException;
 
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -25,7 +26,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 
 @WebMvcTest(UserServiceController.class)
 @Tag("Integration tests")
-public class UserServiceControllerTest {
+ class UserServiceControllerTest {
 
     private static final String API_V1_USERS = "/api/v1/users";
 
@@ -41,15 +42,15 @@ public class UserServiceControllerTest {
     private UserRepository userRepository;
 
     @Test
-    public void shouldUpdateUserWhenRequestMadeToUpdateUser() throws Exception{
-        mvc.perform(put(API_V1_USERS+"/asfsa09hsafdsf88").contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(getSampleUser())))
-                .andExpect(status().isCreated())
+     void shouldUpdateUserWhenRequestMadeToUpdateUser() throws Exception{
+        mvc.perform(put(API_V1_USERS+"/2c9cf08182f36d5a0182f3731f210000").contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(getSampleUser())))
+                .andExpect(status().isOk())
                 .andDo(print());
 
     }
 
     @Test
-    public void shouldThrowBadRequestWhenUserDetailsAreWrong() throws Exception{
+     void shouldThrowBadRequestWhenUserDetailsAreWrong() throws Exception{
         User user = new User();
         user.setFirstName(null);
         user.setLastName("s");
@@ -59,15 +60,15 @@ public class UserServiceControllerTest {
         user.setDateOfBirth("2022-02-02");
         user.setAddress("pollachi");
         user.setPhoneNumber("9965571147");
-        mvc.perform(put(API_V1_USERS+"/asd6fasfa7fa").contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(user)))
+        mvc.perform(put(API_V1_USERS+"/2c9cf08182f36d5a0182f3731f210000").contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(user)))
                 .andExpect(status().isBadRequest())
                 .andDo(print());
     }
 
     @Test
-    public void shouldReturnInternalServerWhenDbReturnsError() throws Exception{
-        when(userService.updateUserDetails(getSampleUser(),"ufda876sagf786")).thenThrow(new IllegalArgumentException());
-        mvc.perform(put(API_V1_USERS+"/ewetwet443466").contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(getSampleUser())))
+     void shouldReturnInternalServerWhenDbReturnsError() throws Exception{
+        when(userService.updateUserDetails(Mockito.any(User.class),eq("2c9cf08182f36d5a0182f3731f210000"))).thenThrow(new IllegalArgumentException());
+        mvc.perform(put(API_V1_USERS+"/2c9cf08182f36d5a0182f3731f210000").contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(getSampleUser())))
                 .andExpect(status().isInternalServerError())
                 .andDo(print());
 

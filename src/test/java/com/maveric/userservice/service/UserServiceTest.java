@@ -19,7 +19,7 @@ import static org.mockito.Mockito.when;
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
-public class UserServiceTest {
+ class UserServiceTest {
 
     @Mock
     private UserRepository mockedUserRepository;
@@ -31,11 +31,11 @@ public class UserServiceTest {
     private UserService userService;
 
     @Test
-    public void shouldReturnUserWhenUpdateUserInvoked() throws Exception {
-        when(mockedUserRepository.findById("sfaeef4fff444")).thenReturn(Optional.ofNullable(getSampleUser()));
+     void shouldReturnUserWhenUpdateUserInvoked() throws Exception {
+        when(mockedUserRepository.findById("2c9cf08182f36d5a0182f3731f210")).thenReturn(Optional.ofNullable(getSampleUser()));
         when(modelDtoConverter.entityToDto(mockedUserRepository.save(getSampleUser()))).thenReturn(getSampleDtoUser());
 
-        UserDto user = userService.updateUserDetails(getSampleUser(),"5823t833255");
+        UserDto user = userService.updateUserDetails(getSampleUser(),"2c9cf08182f36d5a0182f3731f210");
 
         assertNotNull(user);
         assertSame(user.getEmail(),getSampleUser().getEmail());
@@ -44,7 +44,6 @@ public class UserServiceTest {
 
     public User getSampleUser(){
         User user = new User();
-        user.setId(1);
         user.setFirstName("raja");
         user.setLastName("s");
         user.setEmail("shreeharsha@gmail.com");
