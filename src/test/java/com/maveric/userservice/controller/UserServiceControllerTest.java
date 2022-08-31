@@ -40,7 +40,7 @@ class UserServiceControllerTest {
     private UserRepository userRepository;
 
     @Test
-     void shouldGetUserWhenRequestMadeToGetUser() throws Exception{
+     void shouldCreateUserWhenRequestMadeToCreateUser() throws Exception{
         mvc.perform(post(API_V1_USERS).contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(getSampleUser())))
                 .andExpect(status().isCreated())
                 .andDo(print());
