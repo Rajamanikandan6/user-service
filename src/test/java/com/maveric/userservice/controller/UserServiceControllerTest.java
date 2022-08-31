@@ -24,7 +24,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 
 @WebMvcTest(UserServiceController.class)
 @Tag("Integration tests")
-public class UserServiceControllerTest {
+class UserServiceControllerTest {
 
     private static final String API_V1_USERS = "/api/v1/users";
 
@@ -40,7 +40,7 @@ public class UserServiceControllerTest {
     private UserRepository userRepository;
 
     @Test
-    public void shouldGetUserWhenRequestMadeToGetUser() throws Exception{
+     void shouldGetUserWhenRequestMadeToGetUser() throws Exception{
         mvc.perform(post(API_V1_USERS).contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(getSampleUser())))
                 .andExpect(status().isCreated())
                 .andDo(print());
@@ -48,7 +48,7 @@ public class UserServiceControllerTest {
     }
 
     @Test
-    public void shouldThrowBadRequestWhenUserDetailsAreWrong() throws Exception{
+    void shouldThrowBadRequestWhenUserDetailsAreWrong() throws Exception{
         User user = new User();
         user.setFirstName(null);
         user.setLastName("s");
@@ -64,7 +64,7 @@ public class UserServiceControllerTest {
     }
 
     @Test
-    public void shouldReturnInternalServerWhenDbReturnsError() throws Exception{
+     void shouldReturnInternalServerWhenDbReturnsError() throws Exception{
         when(userService.createUserDetails(Mockito.any(User.class))).thenThrow(new IllegalArgumentException());
         mvc.perform(post(API_V1_USERS).contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(getSampleUser())))
                 .andExpect(status().isInternalServerError())

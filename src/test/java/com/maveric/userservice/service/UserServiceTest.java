@@ -17,18 +17,22 @@ import static org.mockito.Mockito.when;
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
-public class UserServiceTest {
+ class UserServiceTest {
 
     @Mock
     private UserRepository mockedUserRepository;
+
+    @Mock
+    private ModelDtoConverter modelDtoConverter;
 
     @InjectMocks
     private UserService userService;
 
 
     @Test
-    public void shouldReturnUserWhenCreateUserInvoked() throws Exception {
+     void shouldReturnUserWhenCreateUserInvoked() throws Exception {
         when(mockedUserRepository.save(any(User.class))).thenReturn(getSampleUser());
+        when(modelDtoConverter.entityToDto(any(User.class))).thenReturn(getSampleDtoUser());
 
         UserDto user = userService.createUserDetails(getSampleUser());
 
@@ -39,6 +43,19 @@ public class UserServiceTest {
 
     public User getSampleUser(){
         User user = new User();
+        user.setFirstName("raja");
+        user.setLastName("s");
+        user.setEmail("raja@gmail.com");
+        user.setPassword("12345");
+        user.setGender(Gender.MALE);
+        user.setDateOfBirth("2022-02-02");
+        user.setAddress("pollachi");
+        user.setPhoneNumber("9965571147");
+        return user;
+    }
+
+    public UserDto getSampleDtoUser(){
+        UserDto user = new UserDto();
         user.setFirstName("raja");
         user.setLastName("s");
         user.setEmail("raja@gmail.com");
