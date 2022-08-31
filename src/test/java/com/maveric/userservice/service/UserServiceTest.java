@@ -1,6 +1,7 @@
 package com.maveric.userservice.service;
 
 import com.maveric.userservice.constant.Gender;
+import com.maveric.userservice.dto.UserDto;
 import com.maveric.userservice.model.User;
 import com.maveric.userservice.repository.UserRepository;
 import org.junit.jupiter.api.Test;
@@ -29,7 +30,7 @@ public class UserServiceTest {
     void shouldReturnUserWhenGetUserInvoked() throws Exception {
         when(mockedUserRepository.findAll()).thenReturn(getSampleUserForGetUsers());
 
-        List<User> user = userService.getUsersDetails(0,10);
+        List<UserDto> user = userService.getUsersDetails(0,10);
 
         assertNotNull(user);
 
