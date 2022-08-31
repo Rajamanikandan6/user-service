@@ -34,7 +34,7 @@ class UserServiceControllerTest {
 
     @Test
     void shouldGetUserWhenRequestMadeToGetUserByEmail() throws Exception{
-        mvc.perform(get(API_V1_USERS+"/shreeharsha@gmail.com"))
+        mvc.perform(get(API_V1_USERS+"/shreeharsha06@gmail.com"))
                 .andExpect(status().isOk())
                 .andDo(print());
 
@@ -42,8 +42,8 @@ class UserServiceControllerTest {
 
     @Test
     void shouldReturnInternalServerWhenDbReturnsError() throws Exception{
-        when(userService.getUserDetailsByEmail("raja@gmail.com")).thenThrow(new UserNotFoundException("raja@gmail.com"));
-        mvc.perform(get(API_V1_USERS+"/raja@gmail.com"))
+        when(userService.getUserDetailsByEmail("raj@gmail.com")).thenThrow(new UserNotFoundException("raj@gmail.com"));
+        mvc.perform(get(API_V1_USERS+"/raj@gmail.com"))
                 .andExpect(status().isNotFound())
                 .andDo(print());
 
