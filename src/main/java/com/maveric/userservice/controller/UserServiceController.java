@@ -1,8 +1,8 @@
 package com.maveric.userservice.controller;
 
+import com.maveric.userservice.dto.UserDto;
 import com.maveric.userservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -22,10 +22,11 @@ public class UserServiceController {
 
     @Autowired
     BCryptPasswordEncoder bCryptPasswordEncoder;
+
     @PostMapping("/users")
-    public ResponseEntity<User> createUser(@Valid @RequestBody User user){
+    public ResponseEntity<UserDto> createUser(@Valid @RequestBody User user){
         user.setPassword(this.bCryptPasswordEncoder.encode(user.getPassword()));
-        User userDetails = userService.createUserDetails(user);
+        UserDto userDetails = userService.createUserDetails(user);
         return ResponseEntity.status(HttpStatus.CREATED).body(userDetails);
     }
 }

@@ -2,6 +2,7 @@ package com.maveric.userservice.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.maveric.userservice.constant.Gender;
+import com.maveric.userservice.dto.UserDto;
 import com.maveric.userservice.model.User;
 import com.maveric.userservice.repository.UserRepository;
 import com.maveric.userservice.service.UserService;
