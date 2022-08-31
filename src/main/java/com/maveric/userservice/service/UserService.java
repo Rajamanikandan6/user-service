@@ -14,9 +14,8 @@ public class UserService {
     @Autowired
     UserRepository userRepository;
 
-    public String deleteUser(int userId){
-        Optional<User> user = userRepository.findById(userId);
-        user.orElseThrow(() -> new UserNotFoundException(userId));
+    public String deleteUser(String userId){
+        User user = userRepository.findById(userId).orElseThrow(() -> new UserNotFoundException(userId));
         userRepository.deleteById(userId);
         return SuccessMessageConstant.SUCCESS_DELETE_USER;
     }

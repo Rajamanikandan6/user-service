@@ -27,12 +27,11 @@ public class UserServiceTest {
 
     @Test
     void shouldReturnUserWhenGetUserInvoked() throws Exception {
+        when(mockedUserRepository.findById("2c9cf08182f36d5a0182f3731f210000")).thenReturn(Optional.of(getSampleUser()));
 
-        when(mockedUserRepository.findById(1)).thenReturn(Optional.of(getSampleUser()));
-
-        String message = userService.deleteUser(1);
+        String message = userService.deleteUser("2c9cf08182f36d5a0182f3731f210000");
         assertNotNull(message);
-        assertSame(message,getSampleUser().getEmail());
+        assertSame(message,"User Deleted Successfully");
 
     }
 
@@ -40,7 +39,7 @@ public class UserServiceTest {
         User user = new User();
         user.setFirstName("raja");
         user.setLastName("s");
-        user.setEmail("shreeharsha@gmail.com");
+        user.setEmail("raja@gmail.com");
         user.setPassword("12345");
         user.setGender(Gender.MALE);
         user.setDateOfBirth("2022-02-02");

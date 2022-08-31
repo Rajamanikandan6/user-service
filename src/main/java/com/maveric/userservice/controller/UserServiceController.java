@@ -17,7 +17,7 @@ public class UserServiceController {
     UserService userService;
 
     @DeleteMapping("/users/{userId}")
-    public ResponseEntity<Object> getUserDetails(@PathVariable int userId){
+    public ResponseEntity<Object> getUserDetails(@PathVariable String userId){
         String desc = userService.deleteUser(userId);
         return ResponseEntity.status(HttpStatus.OK).body(desc);
     }

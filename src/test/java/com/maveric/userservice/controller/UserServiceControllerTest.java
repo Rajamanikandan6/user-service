@@ -33,7 +33,7 @@ public class UserServiceControllerTest {
 
     @Test
     void shouldDeleteUserWhenRequestMadeToDeleteUser() throws Exception{
-        mvc.perform(delete(API_V1_USERS+"/"+1))
+        mvc.perform(delete(API_V1_USERS+"/2c9cf08182f36d5a0182f3731f210000"))
                 .andExpect(status().isOk())
                 .andDo(print());
 
@@ -41,8 +41,8 @@ public class UserServiceControllerTest {
 
     @Test
     void shouldReturnInternalServerWhenDbReturnsError() throws Exception{
-       when(userService.deleteUser(12)).thenThrow(new UserNotFoundException(12));
-        mvc.perform(delete(API_V1_USERS+"/"+12))
+       when(userService.deleteUser("2c9cf08182f36d5a0182f3731f2100")).thenThrow(new UserNotFoundException("2c9cf08182f36d5a0182f3731f2100"));
+        mvc.perform(delete(API_V1_USERS+"/2c9cf08182f36d5a0182f3731f2100"))
                 .andExpect(status().isNotFound())
                 .andDo(print());
 
