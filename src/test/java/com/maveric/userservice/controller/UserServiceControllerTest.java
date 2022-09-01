@@ -17,7 +17,6 @@ import static org.mockito.ArgumentMatchers.any;
 import org.mockito.Mockito;
 import org.springframework.http.MediaType;
 import static org.mockito.ArgumentMatchers.eq;
-
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -44,12 +43,30 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 
 
     @Test
+    void shouldGetUserWhenRequestMadeToGetUserByEmail() throws Exception {
+        mvc.perform(get(API_V1_USERS + "/shreeharsha06@gmail.com"))
+                .andExpect(status().isOk())
+                .andDo(print());
+    }
+
+
+    @Test
     void shouldDeleteUserWhenRequestMadeToDeleteUser() throws Exception{
         mvc.perform(delete(API_V1_USERS+"/2c9cf08182f36d5a0182f3731f210000"))
                 .andExpect(status().isOk())
                 .andDo(print());
 
     }
+
+    @Test
+    void shouldReturnInternalServerWhenDbReturnsErrorForGetUserByEmail() throws Exception{
+        when(userService.getUserDetailsByEmail("raj@gmail.com")).thenThrow(new UserNotFoundException("raj@gmail.com"));
+        mvc.perform(get(API_V1_USERS+"/raj@gmail.com"))
+                .andExpect(status().isNotFound())
+                .andDo(print());
+
+    }
+
     @Test
     void shouldReturnInternalServerWhenDbReturnsError() throws Exception{
        when(userService.deleteUser("2c9cf08182f36d5a0182f3731f2100")).thenThrow(new UserNotFoundException("2c9cf08182f36d5a0182f3731f2100"));
@@ -137,5 +154,4 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
         return user;
 
     }
-
 }

@@ -10,8 +10,6 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
-
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -21,7 +19,6 @@ public class UserDto {
     private String firstName;
 
     private String middleName;
-
 
     @NotNull(message = "lastname shouldn't be empty")
     private String lastName;

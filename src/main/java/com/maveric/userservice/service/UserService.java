@@ -20,6 +20,13 @@ public class UserService {
     ModelDtoConverter modelDtoConverter;
 
 
+    public UserDto getUserDetailsByEmail(String emailId) {
+        User optionalUser = userRepository.findByEmail(emailId).orElseThrow(() -> new UserNotFoundException(emailId));
+
+        return modelDtoConverter.entityToDto(optionalUser);
+    }
+
+
     public UserDto updateUserDetails(User user, String userId){
         Optional<User> userFromDb = userRepository.findById(userId);
         if(userFromDb.isPresent()) {

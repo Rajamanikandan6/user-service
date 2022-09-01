@@ -12,13 +12,11 @@ import org.springframework.web.client.HttpServerErrorException;
 
 @RestControllerAdvice
 public class GlobalControllerAdvice {
-
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Error> internalServerError(Exception exception){
         Error error = getError(String.valueOf(exception.getMessage()),String.valueOf(HttpStatus.INTERNAL_SERVER_ERROR));
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(error);
     }
-
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Error>  handleNullInput(MethodArgumentNotValidException methodArgumentNotValidException){
         Error error = getError(ErrorMessageConstants.MISSING_INPUT,String.valueOf(HttpStatus.BAD_REQUEST));

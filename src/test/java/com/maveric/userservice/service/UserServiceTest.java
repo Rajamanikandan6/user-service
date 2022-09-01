@@ -24,6 +24,16 @@ import static org.junit.jupiter.api.Assertions.*;
     private UserService userService;
     @Mock
     private ModelDtoConverter modelDtoConverter;
+    @Test
+    void shouldReturnUserWhenGetUserByEmailInvoked() throws Exception {
+        when(mockedUserRepository.findByEmail("shreeharsha06@gmail.com")).thenReturn(Optional.of(getSampleUser()));
+        when(modelDtoConverter.entityToDto(any(User.class))).thenReturn(getSampleDtoUser());
+
+        UserDto user = userService.getUserDetailsByEmail("shreeharsha06@gmail.com");
+
+        assertNotNull(user);
+        assertSame(user.getEmail(),getSampleUser().getEmail());
+    }
 
     @Test
     void shouldReturnUserWhenGetUserInvoked() throws Exception {
@@ -59,7 +69,7 @@ import static org.junit.jupiter.api.Assertions.*;
         User user = new User();
         user.setFirstName("raja");
         user.setLastName("s");
-        user.setEmail("raja@gmail.com");
+        user.setEmail("shreeharsha06@gmail.com");
         user.setPassword("12345");
         user.setGender(Gender.MALE);
         user.setDateOfBirth("2022-02-02");
@@ -72,7 +82,7 @@ import static org.junit.jupiter.api.Assertions.*;
         UserDto user = new UserDto();
         user.setFirstName("raja");
         user.setLastName("s");
-        user.setEmail("raja@gmail.com");
+        user.setEmail("shreeharsha06@gmail.com");
         user.setPassword("12345");
         user.setGender(Gender.MALE);
         user.setDateOfBirth("2022-02-02");
