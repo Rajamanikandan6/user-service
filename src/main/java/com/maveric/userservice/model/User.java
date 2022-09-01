@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.maveric.userservice.constant.Gender;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -17,7 +18,8 @@ import java.util.Date;
 public class User {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(generator="system-uuid")
+    @GenericGenerator(name="system-uuid", strategy = "uuid")
     private String id;
 
     @NotNull(message = "firstname shouldn't be empty")
@@ -52,4 +54,6 @@ public class User {
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date updatedAt = new Date();
+
 }
+

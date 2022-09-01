@@ -10,13 +10,16 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+
 @Service
 public class UserService {
+
     @Autowired
     UserRepository userRepository;
 
     @Autowired
     ModelDtoConverter modelDtoConverter;
+
 
     public UserDto updateUserDetails(User user, String userId){
         Optional<User> userFromDb = userRepository.findById(userId);
@@ -36,4 +39,10 @@ public class UserService {
             throw new UserNotFoundException(userId);
         }
     }
+
+    public UserDto createUserDetails(User user){
+        User newUser =userRepository.save(user);
+        return modelDtoConverter.entityToDto(newUser);
+    }
+
 }
