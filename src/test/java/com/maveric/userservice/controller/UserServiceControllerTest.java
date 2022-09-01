@@ -1,6 +1,5 @@
 package com.maveric.userservice.controller;
 
-
 import com.maveric.userservice.exception.UserNotFoundException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.maveric.userservice.constant.Gender;
@@ -22,13 +21,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 
-
-
 @WebMvcTest(UserServiceController.class)
 @Tag("Integration tests")
  class UserServiceControllerTest {
-
     private static final String API_V1_USERS = "/api/v1/users";
+
+    private static final String API_V1_USERS_EMAIL = "/api/v1/users/getUserByEmail";
 
     @Autowired
     MockMvc mvc;
@@ -41,10 +39,16 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
     @MockBean
     private UserRepository userRepository;
 
+    @Test
+    void shouldGetUserWhenRequestMadeToGetUser() throws Exception {
+        mvc.perform(get(API_V1_USERS + "?page=0&pageSize=10"))
+                .andExpect(status().isOk())
+                .andDo(print());
+    }
 
     @Test
     void shouldGetUserWhenRequestMadeToGetUserByEmail() throws Exception {
-        mvc.perform(get(API_V1_USERS + "/shreeharsha06@gmail.com"))
+        mvc.perform(get(API_V1_USERS_EMAIL + "/shreeharsha06@gmail.com"))
                 .andExpect(status().isOk())
                 .andDo(print());
     }
@@ -59,9 +63,17 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
     }
 
     @Test
+    void shouldReturnInternalServerWhenDbReturnsErrorForGetUsers() throws Exception{
+        when(userService.getUsersDetails(0,10)).thenThrow(new IllegalArgumentException());
+        mvc.perform(get(API_V1_USERS+"?page=0&pageSize=10"))
+                .andExpect(status().isNotFound())
+                .andDo(print());
+    }
+
+    @Test
     void shouldReturnInternalServerWhenDbReturnsErrorForGetUserByEmail() throws Exception{
         when(userService.getUserDetailsByEmail("raj@gmail.com")).thenThrow(new UserNotFoundException("raj@gmail.com"));
-        mvc.perform(get(API_V1_USERS+"/raj@gmail.com"))
+        mvc.perform(get(API_V1_USERS_EMAIL+"/raj@gmail.com"))
                 .andExpect(status().isNotFound())
                 .andDo(print());
 

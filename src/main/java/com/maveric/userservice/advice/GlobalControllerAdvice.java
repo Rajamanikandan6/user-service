@@ -1,10 +1,10 @@
 package com.maveric.userservice.advice;
 
-import com.maveric.userservice.constant.ErrorMessageConstants;
 import com.maveric.userservice.dto.Error;
-import com.maveric.userservice.exception.UserNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import com.maveric.userservice.constant.ErrorMessageConstants;
+import com.maveric.userservice.exception.UserNotFoundException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
