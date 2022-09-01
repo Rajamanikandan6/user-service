@@ -11,7 +11,7 @@ import java.util.List;
 public class ModelDtoConverter {
 
     public List<UserDto> entityToDto(List<User> user){
-        List<UserDto> userDto = new ArrayList<UserDto>();
+        List<UserDto> userDto = new ArrayList<>();
         user.stream().forEach(u -> {
             UserDto singleUser = new UserDto();
             singleUser.setFirstName(u.getFirstName());

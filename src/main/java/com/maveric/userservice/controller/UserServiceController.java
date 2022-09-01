@@ -1,7 +1,6 @@
 package com.maveric.userservice.controller;
 
 import com.maveric.userservice.dto.UserDto;
-import com.maveric.userservice.model.User;
 import com.maveric.userservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
