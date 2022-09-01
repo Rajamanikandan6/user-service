@@ -1,4 +1,5 @@
 package com.maveric.userservice.model;
+import com.fasterxml.jackson.annotation.JsonEnumDefaultValue;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.maveric.userservice.constant.Gender;
 import lombok.Getter;
@@ -6,6 +7,7 @@ import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 @Getter
@@ -19,20 +21,22 @@ public class User {
     @GenericGenerator(name="system-uuid", strategy = "uuid")
     private String id;
 
-    @NotNull(message = "firstname shouldn't be empty")
+    @NotBlank(message = "firstname shouldn't be empty")
     private String firstName;
 
     private String middleName;
 
-    @NotNull(message = "lastname shouldn't be empty")
+    @NotBlank(message = "lastname shouldn't be empty")
     private String lastName;
 
+    @NotBlank
     @Email
     private String email;
 
-    @NotNull(message = "phoneNumber shouldn't be empty")
+    @NotBlank(message = "phoneNumber shouldn't be empty")
     private String phoneNumber;
 
+    @NotBlank
     private String address;
 
     private String dateOfBirth;

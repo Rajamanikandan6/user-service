@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import java.util.Optional;
+import static org.mockito.BDDMockito.willDoNothing;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.junit.jupiter.api.Assertions.*;
@@ -70,10 +71,12 @@ import static org.junit.jupiter.api.Assertions.*;
     @Test
     void shouldReturnMessageWhenDeleteUserMethodInvoked() throws Exception {
         when(mockedUserRepository.findById("2c9cf08182f36d5a0182f3731f210000")).thenReturn(Optional.of(getSampleUser()));
+        willDoNothing().given(mockedUserRepository).deleteById("2c9cf08182f36d5a0182f3731f210000");
 
         String message = userService.deleteUser("2c9cf08182f36d5a0182f3731f210000");
+
         assertNotNull(message);
-        assertSame(message, "User Deleted Successfully");
+        assertSame(message , "User Deleted Successfully");
     }
 
     @Test

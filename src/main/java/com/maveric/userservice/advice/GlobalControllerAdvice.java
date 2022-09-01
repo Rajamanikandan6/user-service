@@ -9,6 +9,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.client.HttpServerErrorException;
+import org.springframework.web.servlet.NoHandlerFoundException;
 
 @RestControllerAdvice
 public class GlobalControllerAdvice {
@@ -33,6 +34,12 @@ public class GlobalControllerAdvice {
     public ResponseEntity<Error>  serviceUnavailable(HttpServerErrorException.ServiceUnavailable serviceUnavailable){
         Error error = getError(String.valueOf(serviceUnavailable.getMessage()),String.valueOf(HttpStatus.SERVICE_UNAVAILABLE));
         return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).body(error);
+    }
+
+    @ExceptionHandler(NoHandlerFoundException.class)
+    public ResponseEntity<Error>  noHandlerException(NoHandlerFoundException noHandlerFoundException){
+        Error error = getError(String.valueOf(noHandlerFoundException.getMessage()),String.valueOf(HttpStatus.NOT_FOUND));
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
     }
 
     private Error getError(String message , String code){

@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.web.servlet.MockMvc;
 import static org.mockito.ArgumentMatchers.any;
 import org.mockito.Mockito;
@@ -39,6 +40,10 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
     @MockBean
     private UserRepository userRepository;
 
+    @MockBean
+    BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    //getUser
     @Test
     void shouldGetUserWhenRequestMadeToGetUser() throws Exception{
         mvc.perform(get(API_V1_USERS+"/2c9cf08182f36d5a0182f3731f210000"))
@@ -47,29 +52,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 
     }
     @Test
-    void shouldGetUserWhenRequestMadeToGetUsers() throws Exception {
-        mvc.perform(get(API_V1_USERS + "?page=0&pageSize=10"))
-                .andExpect(status().isOk())
-                .andDo(print());
-    }
-
-    @Test
-    void shouldGetUserWhenRequestMadeToGetUserByEmail() throws Exception {
-        mvc.perform(get(API_V1_USERS_EMAIL + "/shreeharsha06@gmail.com"))
-                .andExpect(status().isOk())
-                .andDo(print());
-    }
-
-
-    @Test
-    void shouldDeleteUserWhenRequestMadeToDeleteUser() throws Exception{
-        mvc.perform(delete(API_V1_USERS+"/2c9cf08182f36d5a0182f3731f210000"))
-                .andExpect(status().isOk())
-                .andDo(print());
-
-    }
-
-    @Test
     void shouldReturnInternalServerWhenDbReturnsError() throws Exception{
         when(userService.getUserDetails("2c9cf08182f36d5a0182f3731f210000")).thenThrow(new UserNotFoundException("2c9cf08182f36d5a0182f3731f210000"));
         mvc.perform(get(API_V1_USERS+"/2c9cf08182f36d5a0182f3731f210000"))
@@ -77,14 +59,30 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
                 .andDo(print());
 
     }
+
+    //get Users
+    @Test
+    void shouldGetUserWhenRequestMadeToGetUsers() throws Exception {
+        mvc.perform(get(API_V1_USERS + "?page=0&pageSize=10"))
+                .andExpect(status().isOk())
+                .andDo(print());
+    }
     @Test
     void shouldReturnInternalServerWhenDbReturnsErrorForGetUsers() throws Exception{
         when(userService.getUsersDetails(0,10)).thenThrow(new IllegalArgumentException());
-        mvc.perform(get(API_V1_USERS+"?page=0&pageSize=10"))
-                .andExpect(status().isNotFound())
+        mvc.perform(get(API_V1_USERS+"?page=-1"))
+                .andExpect(status().is5xxServerError())
                 .andDo(print());
     }
 
+
+    //getUserByEmail
+    @Test
+    void shouldGetUserWhenRequestMadeToGetUserByEmail() throws Exception {
+        mvc.perform(get(API_V1_USERS_EMAIL + "/shreeharsha06@gmail.com"))
+                .andExpect(status().isOk())
+                .andDo(print());
+    }
     @Test
     void shouldReturnInternalServerWhenDbReturnsErrorForGetUserByEmail() throws Exception{
         when(userService.getUserDetailsByEmail("raj@gmail.com")).thenThrow(new UserNotFoundException("raj@gmail.com"));
@@ -94,6 +92,14 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 
     }
 
+    //deleteUser
+    @Test
+    void shouldDeleteUserWhenRequestMadeToDeleteUser() throws Exception{
+        mvc.perform(delete(API_V1_USERS+"/2c9cf08182f36d5a0182f3731f210000"))
+                .andExpect(status().isOk())
+                .andDo(print());
+
+    }
     @Test
     void shouldReturnInternalServerWhenDbReturnsErrorForDelete() throws Exception{
        when(userService.deleteUser("2c9cf08182f36d5a0182f3731f2100")).thenThrow(new UserNotFoundException("2c9cf08182f36d5a0182f3731f2100"));
@@ -102,6 +108,9 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
                 .andDo(print());
 
     }
+
+
+    //createUser
      @Test
      void shouldCreateUserWhenRequestMadeToCreateUser() throws Exception{
         mvc.perform(post(API_V1_USERS).contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(getSampleUser())))
@@ -109,7 +118,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
                 .andDo(print());
 
     }
-
     @Test
      void shouldThrowBadRequestWhenUserDetailsAreWrong() throws Exception {
         User user = new User();
@@ -125,7 +133,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
                 .andExpect(status().isBadRequest())
                 .andDo(print());
     }
-
     @Test
     void shouldReturnInternalServerWhenDbReturnsErrorForCreate() throws Exception {
         when(userService.createUserDetails(Mockito.any(User.class))).thenThrow(new IllegalArgumentException());
@@ -135,6 +142,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 
     }
 
+
+    //updateUser
     @Test
     void shouldUpdateUserWhenRequestMadeToUpdateUser() throws Exception {
         mvc.perform(put(API_V1_USERS + "/2c9cf08182f36d5a0182f3731f210000").contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(getSampleUser())))
