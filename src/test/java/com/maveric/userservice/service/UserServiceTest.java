@@ -10,32 +10,55 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-
 import java.util.Optional;
-
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
  class UserServiceTest {
-    private static final String TEST_USER_ID = "12345678";
 
     @Mock
     private UserRepository mockedUserRepository;
-
-    @Mock
-    private ModelDtoConverter modelDtoConverter;
-
     @InjectMocks
     private UserService userService;
-
+    @Mock
+    private ModelDtoConverter modelDtoConverter;
     @Test
-    void shouldReturnUserWhenGetUserInvoked() throws Exception {
+    void shouldReturnUserWhenGetUserByEmailInvoked() throws Exception {
         when(mockedUserRepository.findByEmail("shreeharsha06@gmail.com")).thenReturn(Optional.of(getSampleUser()));
         when(modelDtoConverter.entityToDto(any(User.class))).thenReturn(getSampleDtoUser());
 
         UserDto user = userService.getUserDetailsByEmail("shreeharsha06@gmail.com");
+
+        assertNotNull(user);
+        assertSame(user.getEmail(),getSampleUser().getEmail());
+    }
+
+    @Test
+    void shouldReturnUserWhenGetUserInvoked() throws Exception {
+        when(mockedUserRepository.findById("2c9cf08182f36d5a0182f3731f210000")).thenReturn(Optional.of(getSampleUser()));
+
+        String message = userService.deleteUser("2c9cf08182f36d5a0182f3731f210000");
+        assertNotNull(message);
+        assertSame(message, "User Deleted Successfully");
+    }
+    @Test
+     void shouldReturnUserWhenUpdateUserInvoked() throws Exception {
+        when(mockedUserRepository.findById("2c9cf08182f36d5a0182f3731f210")).thenReturn(Optional.ofNullable(getSampleUser()));
+        when(modelDtoConverter.entityToDto(mockedUserRepository.save(getSampleUser()))).thenReturn(getSampleDtoUser());
+
+        UserDto user = userService.updateUserDetails(getSampleUser(), "2c9cf08182f36d5a0182f3731f210");
+
+        assertNotNull(user);
+        assertSame(user.getEmail(),getSampleUser().getEmail());
+    }
+    @Test
+     void shouldReturnUserWhenCreateUserInvoked() throws Exception {
+        when(mockedUserRepository.save(any(User.class))).thenReturn(getSampleUser());
+        when(modelDtoConverter.entityToDto(any(User.class))).thenReturn(getSampleDtoUser());
+
+        UserDto user = userService.createUserDetails(getSampleUser());
 
         assertNotNull(user);
         assertSame(user.getEmail(),getSampleUser().getEmail());
