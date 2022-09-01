@@ -33,6 +33,18 @@ import static org.junit.jupiter.api.Assertions.*;
     private UserService userService;
 
     @Test
+    void shouldReturnUserWhenGetUserInvoked() throws Exception {
+        when(mockedUserRepository.findById("2c9cf08182f36d5a0182f3731f210000")).thenReturn(Optional.of(getSampleUser()));
+        when(modelDtoConverter.entityToDto(any(User.class))).thenReturn(getSampleDtoUser());
+
+        UserDto user = userService.getUserDetails("2c9cf08182f36d5a0182f3731f210000");
+
+        assertNotNull(user);
+        assertSame(user.getEmail(),getSampleUser().getEmail());
+
+    }
+
+    @Test
     void shouldReturnUserWhenGetUsersInvoked() throws Exception {
         when(mockedUserRepository.findAll(PageRequest.of(0,10))).thenReturn(Page.empty());
         when(modelDtoConverter.entityToDto(getSampleUsers())).thenReturn(getSampleUserForGetUsers());
@@ -56,7 +68,7 @@ import static org.junit.jupiter.api.Assertions.*;
     }
 
     @Test
-    void shouldReturnUserWhenGetUserInvoked() throws Exception {
+    void shouldReturnMessageWhenDeleteUserMethodInvoked() throws Exception {
         when(mockedUserRepository.findById("2c9cf08182f36d5a0182f3731f210000")).thenReturn(Optional.of(getSampleUser()));
 
         String message = userService.deleteUser("2c9cf08182f36d5a0182f3731f210000");

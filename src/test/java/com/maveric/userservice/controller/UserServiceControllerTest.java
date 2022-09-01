@@ -40,7 +40,14 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
     private UserRepository userRepository;
 
     @Test
-    void shouldGetUserWhenRequestMadeToGetUser() throws Exception {
+    void shouldGetUserWhenRequestMadeToGetUser() throws Exception{
+        mvc.perform(get(API_V1_USERS+"/2c9cf08182f36d5a0182f3731f210000"))
+                .andExpect(status().isOk())
+                .andDo(print());
+
+    }
+    @Test
+    void shouldGetUserWhenRequestMadeToGetUsers() throws Exception {
         mvc.perform(get(API_V1_USERS + "?page=0&pageSize=10"))
                 .andExpect(status().isOk())
                 .andDo(print());
@@ -63,6 +70,14 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
     }
 
     @Test
+    void shouldReturnInternalServerWhenDbReturnsError() throws Exception{
+        when(userService.getUserDetails("2c9cf08182f36d5a0182f3731f210000")).thenThrow(new UserNotFoundException("2c9cf08182f36d5a0182f3731f210000"));
+        mvc.perform(get(API_V1_USERS+"/2c9cf08182f36d5a0182f3731f210000"))
+                .andExpect(status().isNotFound())
+                .andDo(print());
+
+    }
+    @Test
     void shouldReturnInternalServerWhenDbReturnsErrorForGetUsers() throws Exception{
         when(userService.getUsersDetails(0,10)).thenThrow(new IllegalArgumentException());
         mvc.perform(get(API_V1_USERS+"?page=0&pageSize=10"))
@@ -80,7 +95,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
     }
 
     @Test
-    void shouldReturnInternalServerWhenDbReturnsError() throws Exception{
+    void shouldReturnInternalServerWhenDbReturnsErrorForDelete() throws Exception{
        when(userService.deleteUser("2c9cf08182f36d5a0182f3731f2100")).thenThrow(new UserNotFoundException("2c9cf08182f36d5a0182f3731f2100"));
         mvc.perform(delete(API_V1_USERS+"/2c9cf08182f36d5a0182f3731f2100"))
                 .andExpect(status().isNotFound())
@@ -149,9 +164,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
                 .andExpect(status().isInternalServerError())
                 .andDo(print());
     }
-
-
-
 
     public User getSampleUser(){
         User user = new User();

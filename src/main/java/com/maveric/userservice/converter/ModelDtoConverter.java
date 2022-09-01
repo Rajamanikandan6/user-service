@@ -3,7 +3,6 @@ package com.maveric.userservice.converter;
 import com.maveric.userservice.dto.UserDto;
 import com.maveric.userservice.model.User;
 import org.springframework.stereotype.Component;
-
 import java.util.ArrayList;
 import java.util.List;
 

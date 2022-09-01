@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 import java.util.List;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -31,6 +30,11 @@ public class UserServiceController {
     @Autowired
     BCryptPasswordEncoder bCryptPasswordEncoder;
 
+    @GetMapping("/users/{userId}")
+    public ResponseEntity<UserDto> getUserDetails(@PathVariable String userId){
+        UserDto userDetails = userService.getUserDetails(userId);
+        return ResponseEntity.status(HttpStatus.OK).body(userDetails);
+    }
     @GetMapping("/users")
     public ResponseEntity<List<UserDto>> getUsers(@RequestParam int page , @RequestParam int pageSize) {
         List<UserDto> usersDetails = userService.getUsersDetails(page, pageSize);
@@ -43,7 +47,7 @@ public class UserServiceController {
         return ResponseEntity.status(HttpStatus.OK).body(userDetails);
     }
     @DeleteMapping("/users/{userId}")
-    public ResponseEntity<Object> getUserDetails(@PathVariable String userId) {
+    public ResponseEntity<Object> deleteUserDetails(@PathVariable String userId) {
         String desc = userService.deleteUser(userId);
         return ResponseEntity.status(HttpStatus.OK).body(desc);
     }
@@ -52,7 +56,6 @@ public class UserServiceController {
         UserDto userDetails = userService.updateUserDetails(user, userId);
         return ResponseEntity.status(HttpStatus.OK).body(userDetails);
     }
-
     @PostMapping("/users")
     public ResponseEntity<UserDto> createUser(@Valid @RequestBody User user){
         user.setPassword(this.bCryptPasswordEncoder.encode(user.getPassword()));
