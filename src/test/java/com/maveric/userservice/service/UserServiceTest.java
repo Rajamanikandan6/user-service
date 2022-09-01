@@ -10,7 +10,9 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.Optional;
+
+
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
@@ -29,6 +31,16 @@ import static org.junit.jupiter.api.Assertions.*;
     private UserService userService;
 
 
+    @Test
+     void shouldReturnUserWhenUpdateUserInvoked() throws Exception {
+        when(mockedUserRepository.findById("2c9cf08182f36d5a0182f3731f210")).thenReturn(Optional.ofNullable(getSampleUser()));
+        when(modelDtoConverter.entityToDto(mockedUserRepository.save(getSampleUser()))).thenReturn(getSampleDtoUser());
+
+        UserDto user = userService.updateUserDetails(getSampleUser(), "2c9cf08182f36d5a0182f3731f210");
+
+        assertNotNull(user);
+        assertSame(user.getEmail(),getSampleUser().getEmail());
+    }
     @Test
      void shouldReturnUserWhenCreateUserInvoked() throws Exception {
         when(mockedUserRepository.save(any(User.class))).thenReturn(getSampleUser());
@@ -66,5 +78,4 @@ import static org.junit.jupiter.api.Assertions.*;
         user.setPhoneNumber("9965571147");
         return user;
     }
-
 }

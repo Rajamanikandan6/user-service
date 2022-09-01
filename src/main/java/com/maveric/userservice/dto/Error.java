@@ -10,3 +10,4 @@ public class Error {
 
     private String message;
 }
+
