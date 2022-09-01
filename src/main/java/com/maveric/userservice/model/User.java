@@ -54,6 +54,5 @@ public class User {
 
     @Temporal(TemporalType.TIMESTAMP)
     private Date updatedAt = new Date();
-
 }
 

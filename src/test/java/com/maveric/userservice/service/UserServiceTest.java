@@ -11,9 +11,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import java.util.Optional;
-
-
-
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.junit.jupiter.api.Assertions.*;
@@ -23,14 +20,19 @@ import static org.junit.jupiter.api.Assertions.*;
 
     @Mock
     private UserRepository mockedUserRepository;
-
+    @InjectMocks
+    private UserService userService;
     @Mock
     private ModelDtoConverter modelDtoConverter;
 
-    @InjectMocks
-    private UserService userService;
+    @Test
+    void shouldReturnUserWhenGetUserInvoked() throws Exception {
+        when(mockedUserRepository.findById("2c9cf08182f36d5a0182f3731f210000")).thenReturn(Optional.of(getSampleUser()));
 
-
+        String message = userService.deleteUser("2c9cf08182f36d5a0182f3731f210000");
+        assertNotNull(message);
+        assertSame(message, "User Deleted Successfully");
+    }
     @Test
      void shouldReturnUserWhenUpdateUserInvoked() throws Exception {
         when(mockedUserRepository.findById("2c9cf08182f36d5a0182f3731f210")).thenReturn(Optional.ofNullable(getSampleUser()));

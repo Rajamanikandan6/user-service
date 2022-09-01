@@ -1,5 +1,7 @@
 package com.maveric.userservice.controller;
 
+
+import com.maveric.userservice.exception.UserNotFoundException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.maveric.userservice.constant.Gender;
 import com.maveric.userservice.model.User;
@@ -7,14 +9,14 @@ import com.maveric.userservice.repository.UserRepository;
 import com.maveric.userservice.service.UserService;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.ArgumentMatchers.any;
+import org.mockito.Mockito;
+import org.springframework.http.MediaType;
+import static org.mockito.ArgumentMatchers.eq;
 
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -25,8 +27,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 
 @WebMvcTest(UserServiceController.class)
 @Tag("Integration tests")
-
-class UserServiceControllerTest {
+ class UserServiceControllerTest {
 
     private static final String API_V1_USERS = "/api/v1/users";
 
@@ -42,6 +43,21 @@ class UserServiceControllerTest {
     private UserRepository userRepository;
 
 
+    @Test
+    void shouldDeleteUserWhenRequestMadeToDeleteUser() throws Exception{
+        mvc.perform(delete(API_V1_USERS+"/2c9cf08182f36d5a0182f3731f210000"))
+                .andExpect(status().isOk())
+                .andDo(print());
+
+    }
+    @Test
+    void shouldReturnInternalServerWhenDbReturnsError() throws Exception{
+       when(userService.deleteUser("2c9cf08182f36d5a0182f3731f2100")).thenThrow(new UserNotFoundException("2c9cf08182f36d5a0182f3731f2100"));
+        mvc.perform(delete(API_V1_USERS+"/2c9cf08182f36d5a0182f3731f2100"))
+                .andExpect(status().isNotFound())
+                .andDo(print());
+
+    }
      @Test
      void shouldCreateUserWhenRequestMadeToCreateUser() throws Exception{
         mvc.perform(post(API_V1_USERS).contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(getSampleUser())))
