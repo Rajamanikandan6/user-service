@@ -1,9 +1,11 @@
 package com.maveric.userservice.advice;
 
+import com.maveric.userservice.constant.ErrorMessageConstants;
 import com.maveric.userservice.dto.Error;
 import com.maveric.userservice.exception.UserNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.client.HttpServerErrorException;
@@ -17,8 +19,14 @@ public class GlobalControllerAdvice {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(error);
     }
 
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<Error>  handleNullInput(MethodArgumentNotValidException methodArgumentNotValidException){
+        Error error = getError(ErrorMessageConstants.MISSING_INPUT,String.valueOf(HttpStatus.BAD_REQUEST));
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
+    }
+
     @ExceptionHandler(UserNotFoundException.class)
-    public ResponseEntity<Error>  userNotFoundException(UserNotFoundException userNotFoundException){
+    public ResponseEntity<Error>  handleNullInput(UserNotFoundException userNotFoundException){
         Error error = getError(userNotFoundException.getMessage(),String.valueOf(HttpStatus.NOT_FOUND.value()));
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
     }
