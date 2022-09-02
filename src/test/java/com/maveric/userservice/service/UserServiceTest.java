@@ -78,7 +78,7 @@ import static org.junit.jupiter.api.Assertions.*;
         String message = userService.deleteUser("2c9cf08182f36d5a0182f3731f210000");
 
         assertNotNull(message);
-        assertSame(message , "User Deleted Successfully");
+        assertSame("User Deleted Successfully",message);
     }
 
     @Test
