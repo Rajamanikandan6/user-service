@@ -18,15 +18,14 @@ public class DateValidatorImplementation implements ConstraintValidator <DateVal
             date1 = new Date();
             date2 = dateFormat.parse(dateOfBirth);
         } catch (ParseException e) {
-            throw new RuntimeException(e);
+            return false;
         }
         dateFormat.format(date1);
         dateFormat.format(date2);
         if(date1.compareTo(date2) > 0)
-        {
-           return true;
-        }else{
+            return true;
+        else
             return false;
-        }
+
     }
 }
