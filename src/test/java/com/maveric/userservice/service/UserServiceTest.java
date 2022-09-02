@@ -12,6 +12,8 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+
+import javax.swing.text.html.Option;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -92,6 +94,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
     @Test
      void shouldReturnUserWhenCreateUserInvoked() throws Exception {
+
+        when(mockedUserRepository.findByEmail(any())).thenReturn( Optional.empty ());
         when(mockedUserRepository.save(any(User.class))).thenReturn(getSampleUser());
         when(modelDtoConverter.entityToDto(any(User.class))).thenReturn(getSampleDtoUser());
 

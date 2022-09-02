@@ -9,6 +9,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Date;
 @Getter
 @Setter
@@ -30,9 +31,10 @@ public class User {
     private String lastName;
 
     @NotBlank
-    @Email
+    @Email(regexp = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}")
     private String email;
 
+    @Size(min = 10,max = 10)
     @NotBlank(message = "phoneNumber shouldn't be empty")
     private String phoneNumber;
 

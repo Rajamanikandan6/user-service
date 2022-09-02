@@ -1,6 +1,7 @@
 package com.maveric.userservice.advice;
 
 import com.maveric.userservice.dto.Error;
+import com.maveric.userservice.exception.EmailDuplicationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import com.maveric.userservice.constant.ErrorMessageConstants;
@@ -20,7 +21,7 @@ public class GlobalControllerAdvice {
     }
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Error>  handleNullInput(MethodArgumentNotValidException methodArgumentNotValidException){
-        Error error = getError(ErrorMessageConstants.MISSING_INPUT,String.valueOf(HttpStatus.BAD_REQUEST));
+        Error error = getError(methodArgumentNotValidException.getBindingResult().getAllErrors().get(0).getDefaultMessage(),String.valueOf(HttpStatus.BAD_REQUEST));
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
     }
 
@@ -28,6 +29,12 @@ public class GlobalControllerAdvice {
     public ResponseEntity<Error>  handleNullInput(UserNotFoundException userNotFoundException){
         Error error = getError(userNotFoundException.getMessage(),String.valueOf(HttpStatus.NOT_FOUND.value()));
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
+    }
+
+    @ExceptionHandler(EmailDuplicationException.class)
+    public ResponseEntity<Error>  handleNullInput(EmailDuplicationException e){
+        Error error = getError(e.getMessage(),String.valueOf(HttpStatus.ALREADY_REPORTED.value()));
+        return ResponseEntity.status(HttpStatus.ALREADY_REPORTED).body(error);
     }
 
     @ExceptionHandler(HttpServerErrorException.ServiceUnavailable.class)

@@ -2,6 +2,7 @@ package com.maveric.userservice.service;
 
 import com.maveric.userservice.converter.ModelDtoConverter;
 import com.maveric.userservice.dto.UserDto;
+import com.maveric.userservice.exception.EmailDuplicationException;
 import com.maveric.userservice.exception.UserNotFoundException;
 import com.maveric.userservice.model.User;
 import com.maveric.userservice.repository.UserRepository;
@@ -59,8 +60,14 @@ public class UserService {
     }
 
     public UserDto createUserDetails(User user){
-        User newUser =userRepository.save(user);
-        return modelDtoConverter.entityToDto(newUser);
+        Optional<User> emailUser = userRepository.findByEmail(user.getEmail());
+        if(!emailUser.isPresent()) {
+            User newUser = userRepository.save(user);
+            return modelDtoConverter.entityToDto(newUser);
+        }else{
+            throw new EmailDuplicationException(user.getEmail());
+        }
+
     }
 
     public String deleteUser(String userId){
