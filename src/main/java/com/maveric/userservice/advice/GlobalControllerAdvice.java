@@ -20,7 +20,7 @@ public class GlobalControllerAdvice {
     }
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Error>  handleNullInput(MethodArgumentNotValidException methodArgumentNotValidException){
-        Error error = getError(methodArgumentNotValidException.getMessage(),String.valueOf(HttpStatus.BAD_REQUEST));
+        Error error = getError(methodArgumentNotValidException.getBindingResult().getAllErrors().get(0).getDefaultMessage(),String.valueOf(HttpStatus.BAD_REQUEST));
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
     }
 

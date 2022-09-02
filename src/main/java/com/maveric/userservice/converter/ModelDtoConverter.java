@@ -11,17 +11,17 @@ public class ModelDtoConverter {
 
     public List<UserDto> entityToDto(List<User> user) {
         List<UserDto> userDto = new ArrayList<>();
-        user.stream().forEach(u -> {
+        user.stream().forEach(fetchUser -> {
             UserDto singleUser = new UserDto();
-            singleUser.setFirstName(u.getFirstName());
-            singleUser.setMiddleName(u.getMiddleName());
-            singleUser.setLastName(u.getLastName());
-            singleUser.setEmail(u.getEmail());
-            singleUser.setPhoneNumber(u.getPhoneNumber());
-            singleUser.setAddress(u.getAddress());
-            singleUser.setGender(u.getGender());
-            singleUser.setRole(u.getRole());
-            singleUser.setDateOfBirth(u.getDateOfBirth());
+            singleUser.setFirstName(fetchUser.getFirstName());
+            singleUser.setMiddleName(fetchUser.getMiddleName());
+            singleUser.setLastName(fetchUser.getLastName());
+            singleUser.setEmail(fetchUser.getEmail());
+            singleUser.setPhoneNumber(fetchUser.getPhoneNumber());
+            singleUser.setAddress(fetchUser.getAddress());
+            singleUser.setGender(fetchUser.getGender());
+            singleUser.setRole(fetchUser.getRole());
+            singleUser.setDateOfBirth(fetchUser.getDateOfBirth());
             userDto.add(singleUser);
         });
         return userDto;

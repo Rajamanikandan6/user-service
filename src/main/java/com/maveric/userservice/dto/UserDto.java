@@ -11,8 +11,6 @@ import javax.persistence.Enumerated;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class UserDto {
 
     @NotNull(message = "firstname shouldn't be empty")
