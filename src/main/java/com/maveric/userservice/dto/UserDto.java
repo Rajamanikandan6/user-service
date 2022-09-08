@@ -11,6 +11,8 @@ import javax.validation.constraints.NotNull;
 @Data
 public class UserDto {
 
+    private String id;
+
     @NotNull(message = "firstname shouldn't be empty")
     private String firstName;
 
@@ -34,6 +36,5 @@ public class UserDto {
 
     private String role;
 
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 }

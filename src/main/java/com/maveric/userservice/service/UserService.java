@@ -36,7 +36,7 @@ public class UserService {
     public UserDto getUserDetailsByEmail(String emailId) {
         User optionalUser = userRepository.findByEmail(emailId).orElseThrow(() -> new UserNotFoundException(emailId));
 
-        return modelDtoConverter.entityToDto(optionalUser);
+        return modelDtoConverter.entityToDtoForEmail(optionalUser);
     }
 
 

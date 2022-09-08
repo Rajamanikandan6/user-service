@@ -62,7 +62,7 @@ import static org.junit.jupiter.api.Assertions.*;
     @Test
     void shouldReturnUserWhenGetUserByEmailInvoked() throws Exception {
         when(mockedUserRepository.findByEmail("shreeharsha06@gmail.com")).thenReturn(Optional.of(getSampleUser()));
-        when(modelDtoConverter.entityToDto(any(User.class))).thenReturn(getSampleDtoUser());
+        when(modelDtoConverter.entityToDtoForEmail(any(User.class))).thenReturn(getSampleDtoUser());
 
         UserDto user = userService.getUserDetailsByEmail("shreeharsha06@gmail.com");
 

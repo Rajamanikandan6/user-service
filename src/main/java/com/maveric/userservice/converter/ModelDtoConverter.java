@@ -13,6 +13,7 @@ public class ModelDtoConverter {
         List<UserDto> userDto = new ArrayList<>();
         user.stream().forEach(fetchUser -> {
             UserDto singleUser = new UserDto();
+            singleUser.setId(fetchUser.getId());
             singleUser.setFirstName(fetchUser.getFirstName());
             singleUser.setMiddleName(fetchUser.getMiddleName());
             singleUser.setLastName(fetchUser.getLastName());
@@ -29,6 +30,7 @@ public class ModelDtoConverter {
 
     public UserDto entityToDto(User user){
         UserDto userDto = new UserDto();
+        userDto.setId(user.getId());
         userDto.setFirstName(user.getFirstName());
         userDto.setMiddleName(user.getMiddleName());
         userDto.setLastName(user.getLastName());
@@ -43,20 +45,21 @@ public class ModelDtoConverter {
 
     }
 
-    public User dtoToEntity(UserDto userDto){
-        User user = new User();
-        user.setFirstName(userDto.getFirstName());
-        user.setMiddleName(userDto.getMiddleName());
-        user.setLastName(userDto.getLastName());
-        user.setEmail(userDto.getEmail());
-        user.setPhoneNumber(userDto.getPhoneNumber());
-        user.setAddress(userDto.getAddress());
-        user.setGender(userDto.getGender());
-        user.setRole(userDto.getRole());
-        user.setPassword(userDto.getPassword());
-        user.setDateOfBirth(userDto.getDateOfBirth());
+    public UserDto entityToDtoForEmail(User user){
+        UserDto userDto = new UserDto();
+        userDto.setId(user.getId());
+        userDto.setFirstName(user.getFirstName());
+        userDto.setMiddleName(user.getMiddleName());
+        userDto.setLastName(user.getLastName());
+        userDto.setEmail(user.getEmail());
+        userDto.setPhoneNumber(user.getPhoneNumber());
+        userDto.setAddress(user.getAddress());
+        userDto.setGender(user.getGender());
+        userDto.setRole(user.getRole());
+        userDto.setDateOfBirth(user.getDateOfBirth());
+        userDto.setPassword(user.getPassword());
 
-        return user;
+        return userDto;
 
     }
 }
