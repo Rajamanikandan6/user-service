@@ -1,5 +1,7 @@
 package com.maveric.userservice.advice;
 
+import com.fasterxml.jackson.databind.exc.InvalidFormatException;
+import com.maveric.userservice.constant.ErrorMessageConstants;
 import com.maveric.userservice.dto.Error;
 import com.maveric.userservice.exception.EmailDuplicationException;
 import org.springframework.http.HttpStatus;
@@ -36,11 +38,18 @@ public class GlobalControllerAdvice {
         return ResponseEntity.status(HttpStatus.ALREADY_REPORTED).body(error);
     }
 
+    @ExceptionHandler(InvalidFormatException.class)
+    public ResponseEntity<Error> handleFormatException(InvalidFormatException invalidFormatException){
+        Error error = getError(ErrorMessageConstants.GENDER_ERROR,String.valueOf(HttpStatus.BAD_REQUEST));
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
+    }
+
     @ExceptionHandler(HttpServerErrorException.ServiceUnavailable.class)
     public ResponseEntity<Error>  serviceUnavailable(HttpServerErrorException.ServiceUnavailable serviceUnavailable){
         Error error = getError(String.valueOf(serviceUnavailable.getMessage()),String.valueOf(HttpStatus.SERVICE_UNAVAILABLE));
         return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).body(error);
     }
+
 
     @ExceptionHandler(NoHandlerFoundException.class)
     public ResponseEntity<Error>  noHandlerException(NoHandlerFoundException noHandlerFoundException){

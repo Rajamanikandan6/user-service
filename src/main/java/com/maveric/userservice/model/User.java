@@ -30,7 +30,7 @@ public class User {
     @NotBlank(message = "lastname shouldn't be empty")
     private String lastName;
 
-    @NotBlank
+    @NotBlank(message = "email should not be empty")
     @Email(regexp = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}")
     private String email;
 
@@ -46,7 +46,7 @@ public class User {
     private String dateOfBirth;
 
     @Enumerated(EnumType.STRING)
-    @GenderValidation
+    @GenderValidation(anyOfTheseGender = {Gender.FEMALE,Gender.MALE})
     private Gender gender;
 
     private String role;
