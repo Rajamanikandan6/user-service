@@ -7,6 +7,7 @@ import com.maveric.userservice.exception.EmailDuplicationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import com.maveric.userservice.exception.UserNotFoundException;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -38,8 +39,8 @@ public class GlobalControllerAdvice {
         return ResponseEntity.status(HttpStatus.ALREADY_REPORTED).body(error);
     }
 
-    @ExceptionHandler(InvalidFormatException.class)
-    public ResponseEntity<Error> handleFormatException(InvalidFormatException invalidFormatException){
+    @ExceptionHandler(HttpMessageNotReadableException.class)
+    public ResponseEntity<Error> handleFormatException(HttpMessageNotReadableException httpMessageNotReadableException){
         Error error = getError(ErrorMessageConstants.GENDER_ERROR,String.valueOf(HttpStatus.BAD_REQUEST));
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
     }

@@ -11,10 +11,13 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 
 import javax.swing.text.html.Option;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import java.util.Optional;
@@ -31,6 +34,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
     @Mock
     private ModelDtoConverter modelDtoConverter;
+
+    @Mock
+    private Page page;
 
     @InjectMocks
     private UserService userService;
@@ -49,9 +55,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
     @Test
     void shouldReturnUserWhenGetUsersInvoked() throws Exception {
-        when(mockedUserRepository.findAll(PageRequest.of(0,10))).thenReturn(Page.empty());
-        when(modelDtoConverter.entityToDto(getSampleUsers())).thenReturn(getSampleUserForGetUsers());
-
+        Page<User> pageResponse = new PageImpl<>(Arrays.asList(getSampleUser(),getSampleUser()));
+        when(mockedUserRepository.findAll(any(Pageable.class))).thenReturn(pageResponse);
+        when(modelDtoConverter.entityToDto((List<User>) any())).thenReturn(Arrays.asList(getSampleDtoUser(),getSampleDtoUser()));
 
         List<UserDto> user = userService.getUsersDetails(0,10);
 

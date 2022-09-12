@@ -31,8 +31,7 @@ public class UserServiceController {
     BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @GetMapping("/users/{userId}")
-    public ResponseEntity<UserDto> getUserDetails(@PathVariable String userId,@RequestHeader(value = "userId") String secondUserId){
-        System.out.println(secondUserId);
+    public ResponseEntity<UserDto> getUserDetails(@PathVariable String userId){
         UserDto userDetails = userService.getUserDetails(userId);
         return ResponseEntity.status(HttpStatus.OK).body(userDetails);
     }
@@ -58,8 +57,7 @@ public class UserServiceController {
         return ResponseEntity.status(HttpStatus.OK).body(userDetails);
     }
     @PostMapping("/users")
-    public ResponseEntity<UserDto> createUser(@Valid @RequestBody User user,@RequestHeader(value = "userId") String userId){
-        System.out.println(userId);
+    public ResponseEntity<UserDto> createUser(@Valid @RequestBody User user){
         user.setPassword(this.bCryptPasswordEncoder.encode(user.getPassword()));
         UserDto userDetails = userService.createUserDetails(user);
         return ResponseEntity.status(HttpStatus.CREATED).body(userDetails);
