@@ -40,18 +40,19 @@ public class UserService {
     }
 
 
-    public UserDto updateUserDetails(User user, String userId){
+    public UserDto updateUserDetails(UserDto userDto, String userId){
+
         Optional<User> userFromDb = userRepository.findById(userId);
         if(userFromDb.isPresent()) {
             User newUser = userFromDb.get();
-            newUser.setFirstName(user.getFirstName());
-            newUser.setLastName(user.getLastName());
-            newUser.setMiddleName(user.getMiddleName());
-            newUser.setPhoneNumber(user.getPhoneNumber());
-            newUser.setEmail(user.getEmail());
-            newUser.setAddress(user.getAddress());
-            newUser.setDateOfBirth(user.getDateOfBirth());
-            newUser.setGender(user.getGender());
+            newUser.setFirstName(userDto.getFirstName());
+            newUser.setLastName(userDto.getLastName());
+            newUser.setMiddleName(userDto.getMiddleName());
+            newUser.setPhoneNumber(userDto.getPhoneNumber());
+            newUser.setEmail(userDto.getEmail());
+            newUser.setAddress(userDto.getAddress());
+            newUser.setDateOfBirth(userDto.getDateOfBirth());
+            newUser.setGender(userDto.getGender());
 
             return modelDtoConverter.entityToDto(userRepository.save(newUser));
         }else{
@@ -59,7 +60,8 @@ public class UserService {
         }
     }
 
-    public UserDto createUserDetails(User user){
+    public UserDto createUserDetails(UserDto userDto){
+        User user = modelDtoConverter.dtoToEntity(userDto);
         Optional<User> emailUser = userRepository.findByEmail(user.getEmail());
         if(!emailUser.isPresent()) {
             User newUser = userRepository.save(user);

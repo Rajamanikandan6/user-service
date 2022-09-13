@@ -1,7 +1,6 @@
 package com.maveric.userservice.controller;
 
 import com.maveric.userservice.dto.UserDto;
-import com.maveric.userservice.model.User;
 import com.maveric.userservice.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -52,14 +51,14 @@ public class UserServiceController {
         return ResponseEntity.status(HttpStatus.OK).body(desc);
     }
     @PutMapping("/users/{userId}")
-    public ResponseEntity<UserDto> updateUser(@Valid @RequestBody User user, @PathVariable String userId) {
-        UserDto userDetails = userService.updateUserDetails(user, userId);
+    public ResponseEntity<UserDto> updateUser(@Valid @RequestBody UserDto userDto, @PathVariable String userId) {
+        UserDto userDetails = userService.updateUserDetails(userDto, userId);
         return ResponseEntity.status(HttpStatus.OK).body(userDetails);
     }
     @PostMapping("/users")
-    public ResponseEntity<UserDto> createUser(@Valid @RequestBody User user){
-        user.setPassword(this.bCryptPasswordEncoder.encode(user.getPassword()));
-        UserDto userDetails = userService.createUserDetails(user);
+    public ResponseEntity<UserDto> createUser(@Valid @RequestBody UserDto userDto){
+        userDto.setPassword(this.bCryptPasswordEncoder.encode(userDto.getPassword()));
+        UserDto userDetails = userService.createUserDetails(userDto);
         return ResponseEntity.status(HttpStatus.CREATED).body(userDetails);
     }
 }

@@ -1,5 +1,6 @@
 package com.maveric.userservice.controller;
 
+import com.maveric.userservice.dto.UserDto;
 import com.maveric.userservice.exception.UserNotFoundException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.maveric.userservice.constant.Gender;
@@ -135,7 +136,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
     }
     @Test
     void shouldReturnInternalServerWhenDbReturnsErrorForCreate() throws Exception {
-        when(userService.createUserDetails(Mockito.any(User.class))).thenThrow(new IllegalArgumentException());
+        when(userService.createUserDetails(Mockito.any(UserDto.class))).thenThrow(new IllegalArgumentException());
         mvc.perform(post(API_V1_USERS).contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(getSampleUser())))
                 .andExpect(status().isInternalServerError())
                 .andDo(print());
@@ -168,7 +169,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 
     @Test
      void shouldReturnInternalServerWhenDbReturnsErrorForUpdate() throws Exception {
-        when(userService.updateUserDetails(Mockito.any(User.class), eq("2c9cf08182f36d5a0182f3731f210000"))).thenThrow(new IllegalArgumentException());
+        when(userService.updateUserDetails(Mockito.any(UserDto.class), eq("2c9cf08182f36d5a0182f3731f210000"))).thenThrow(new IllegalArgumentException());
         mvc.perform(put(API_V1_USERS + "/2c9cf08182f36d5a0182f3731f210000").contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(getSampleUser())))
                 .andExpect(status().isInternalServerError())
                 .andDo(print());

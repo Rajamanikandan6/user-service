@@ -1,6 +1,5 @@
 package com.maveric.userservice.advice;
 
-import com.fasterxml.jackson.databind.exc.InvalidFormatException;
 import com.maveric.userservice.constant.ErrorMessageConstants;
 import com.maveric.userservice.dto.Error;
 import com.maveric.userservice.exception.EmailDuplicationException;
@@ -28,15 +27,15 @@ public class GlobalControllerAdvice {
     }
 
     @ExceptionHandler(UserNotFoundException.class)
-    public ResponseEntity<Error>  handleNullInput(UserNotFoundException userNotFoundException){
+    public ResponseEntity<Error>  handleUserNotFoundException(UserNotFoundException userNotFoundException){
         Error error = getError(userNotFoundException.getMessage(),String.valueOf(HttpStatus.NOT_FOUND.value()));
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
     }
 
     @ExceptionHandler(EmailDuplicationException.class)
-    public ResponseEntity<Error>  handleNullInput(EmailDuplicationException e){
-        Error error = getError(e.getMessage(),String.valueOf(HttpStatus.ALREADY_REPORTED.value()));
-        return ResponseEntity.status(HttpStatus.ALREADY_REPORTED).body(error);
+    public ResponseEntity<Error>  handleEmailDuplication(EmailDuplicationException e){
+        Error error = getError(e.getMessage(),String.valueOf(HttpStatus.BAD_REQUEST.value()));
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
     }
 
     @ExceptionHandler(HttpMessageNotReadableException.class)

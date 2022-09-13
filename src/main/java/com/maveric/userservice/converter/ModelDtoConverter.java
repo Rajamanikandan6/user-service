@@ -62,4 +62,39 @@ public class ModelDtoConverter {
         return userDto;
 
     }
+
+    public User DtoToEntityForEmail(UserDto userDto){
+        User user = new User();
+        user.setId(userDto.getId());
+        user.setFirstName(userDto.getFirstName());
+        user.setMiddleName(userDto.getMiddleName());
+        user.setLastName(userDto.getLastName());
+        user.setEmail(userDto.getEmail());
+        user.setPhoneNumber(userDto.getPhoneNumber());
+        user.setAddress(userDto.getAddress());
+        user.setGender(userDto.getGender());
+        user.setRole(userDto.getRole());
+        user.setDateOfBirth(userDto.getDateOfBirth());
+        user.setPassword(userDto.getPassword());
+
+        return user;
+
+    }
+
+    public User dtoToEntity(UserDto userDto){
+        User user = new User();
+        user.setId(userDto.getId());
+        user.setFirstName(userDto.getFirstName());
+        user.setMiddleName(userDto.getMiddleName());
+        user.setLastName(userDto.getLastName());
+        user.setEmail(userDto.getEmail());
+        user.setPhoneNumber(userDto.getPhoneNumber());
+        user.setAddress(userDto.getAddress());
+        user.setGender(userDto.getGender());
+        user.setRole(userDto.getRole());
+        user.setDateOfBirth(userDto.getDateOfBirth());
+
+        return user;
+
+    }
 }

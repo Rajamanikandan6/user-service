@@ -92,7 +92,7 @@ import static org.junit.jupiter.api.Assertions.*;
         when(mockedUserRepository.findById("2c9cf08182f36d5a0182f3731f210")).thenReturn(Optional.ofNullable(getSampleUser()));
         when(modelDtoConverter.entityToDto(mockedUserRepository.save(getSampleUser()))).thenReturn(getSampleDtoUser());
 
-        UserDto user = userService.updateUserDetails(getSampleUser(), "2c9cf08182f36d5a0182f3731f210");
+        UserDto user = userService.updateUserDetails(getSampleDtoUser(), "2c9cf08182f36d5a0182f3731f210");
 
         assertNotNull(user);
         assertSame(user.getEmail(),getSampleUser().getEmail());
@@ -101,14 +101,15 @@ import static org.junit.jupiter.api.Assertions.*;
     @Test
      void shouldReturnUserWhenCreateUserInvoked() throws Exception {
 
+        when(modelDtoConverter.dtoToEntity(any(UserDto.class))).thenReturn(getSampleUser());
         when(mockedUserRepository.findByEmail(any())).thenReturn( Optional.empty ());
         when(mockedUserRepository.save(any(User.class))).thenReturn(getSampleUser());
         when(modelDtoConverter.entityToDto(any(User.class))).thenReturn(getSampleDtoUser());
 
-        UserDto user = userService.createUserDetails(getSampleUser());
+        UserDto userDto = userService.createUserDetails(getSampleDtoUser());
 
-        assertNotNull(user);
-        assertSame(user.getEmail(),getSampleUser().getEmail());
+        assertNotNull(userDto);
+        assertSame(userDto.getEmail(),getSampleDtoUser().getEmail());
 
     }
 
