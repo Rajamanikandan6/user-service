@@ -13,7 +13,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
-public class UserExceptionTest {
+class UserExceptionTest {
 
     @InjectMocks
     private GlobalControllerAdvice globalControllerAdvice;

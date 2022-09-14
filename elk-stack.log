@@ -1,0 +1,16 @@
+2022-09-14 16:18:38.927  INFO 145552 --- [http-nio-3005-exec-3] c.m.u.controller.UserServiceController   : User found by Email raja@gmail.com
+2022-09-14 16:18:39.193  INFO 145552 --- [http-nio-3005-exec-2] c.m.u.controller.UserServiceController   : User found by Email raja@gmail.com
+2022-09-14 16:18:39.565  INFO 145552 --- [http-nio-3005-exec-6] c.m.u.controller.UserServiceController   : User found 2c9cf081831112660183118aeabf0000
+2022-09-14 16:20:30.667  INFO 145552 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-09-14 16:25:30.697  INFO 145552 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-09-14 16:30:30.762  INFO 145552 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-09-14 16:35:30.811  INFO 145552 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-09-14 16:40:30.874  INFO 145552 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-09-14 16:45:30.907  INFO 145552 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-09-14 17:00:42.085  WARN 145552 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=11m43s969ms919µs400ns).
+2022-09-14 17:01:44.920  INFO 145552 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-09-14 17:06:45.025  INFO 145552 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-09-14 17:11:45.507  INFO 145552 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-09-14 17:16:45.551  INFO 145552 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-09-14 17:21:45.598  INFO 145552 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-09-14 17:26:45.650  INFO 145552 --- [AsyncResolver-bootstrap-executor-0] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
