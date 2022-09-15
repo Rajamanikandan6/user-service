@@ -1,0 +1,273 @@
+2022-09-15 22:38:15.796  INFO 152224 --- [main] c.m.u.c.UserServiceControllerTest        : Starting UserServiceControllerTest using Java 18.0.2.1 on MAVLT1146 with PID 152224 (started by rajamanikandanso in E:\maveric_bank_app\user-service)
+2022-09-15 22:38:15.806  INFO 152224 --- [main] c.m.u.c.UserServiceControllerTest        : No active profile set, falling back to 1 default profile: "default"
+2022-09-15 22:38:22.294  INFO 152224 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2022-09-15 22:38:22.295  INFO 152224 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2022-09-15 22:38:22.300  INFO 152224 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
+2022-09-15 22:38:22.377  INFO 152224 --- [main] c.m.u.c.UserServiceControllerTest        : Started UserServiceControllerTest in 11.841 seconds (JVM running for 18.952)
+2022-09-15 22:38:23.041 ERROR 152224 --- [main] c.m.u.advice.GlobalControllerAdvice      : null
+2022-09-15 22:38:23.139 ERROR 152224 --- [main] c.m.u.advice.GlobalControllerAdvice      : Required request header 'userId' for method parameter type String is not present
+2022-09-15 22:38:23.173 ERROR 152224 --- [main] c.m.u.advice.GlobalControllerAdvice      : Could not find user raj@gmail.com
+2022-09-15 22:38:23.234 ERROR 152224 --- [main] c.m.u.advice.GlobalControllerAdvice      : Required request header 'userId' for method parameter type String is not present
+2022-09-15 22:38:23.260 ERROR 152224 --- [main] c.m.u.advice.GlobalControllerAdvice      : Required request header 'userId' for method parameter type String is not present
+2022-09-15 22:38:23.288 ERROR 152224 --- [main] c.m.u.advice.GlobalControllerAdvice      : Required request parameter 'pageSize' for method parameter type int is not present
+2022-09-15 22:38:23.306  INFO 152224 --- [main] c.m.u.controller.UserServiceController   : User found by Email shreeharsha06@gmail.com
+2022-09-15 22:38:23.342 ERROR 152224 --- [main] c.m.u.advice.GlobalControllerAdvice      : Cannot invoke "com.maveric.userservice.dto.UserDto.getId()" because "userDetails" is null
+2022-09-15 22:38:23.364 ERROR 152224 --- [main] c.m.u.advice.GlobalControllerAdvice      : Required request header 'userId' for method parameter type String is not present
+2022-09-15 22:38:23.389  INFO 152224 --- [main] c.m.u.controller.UserServiceController   : Fetched all users
+2022-09-15 22:38:23.415 ERROR 152224 --- [main] c.m.u.advice.GlobalControllerAdvice      : Required request header 'userId' for method parameter type String is not present
+2022-09-15 22:38:23.475 ERROR 152224 --- [main] c.m.u.advice.GlobalControllerAdvice      : firstname shouldn't be empty
+2022-09-15 22:38:23.516 ERROR 152224 --- [main] c.m.u.advice.GlobalControllerAdvice      : firstname shouldn't be empty
+2022-09-15 22:38:23.537 ERROR 152224 --- [main] c.m.u.advice.GlobalControllerAdvice      : Required request header 'userId' for method parameter type String is not present
+2022-09-15 22:38:23.636 ERROR 152224 --- [main] c.m.u.advice.GlobalControllerAdvice      : Could not find user User Not found
+2022-09-15 22:38:23.659 ERROR 152224 --- [main] c.m.u.advice.GlobalControllerAdvice      : Email id already Exist Email already present
+2022-09-15 22:38:23.922  INFO 152224 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.maveric.userservice.UserServiceApplicationTests], using SpringBootContextLoader
+2022-09-15 22:38:23.924  INFO 152224 --- [main] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.maveric.userservice.UserServiceApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+2022-09-15 22:38:23.925  INFO 152224 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.maveric.userservice.UserServiceApplicationTests]: UserServiceApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2022-09-15 22:38:23.934  INFO 152224 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.maveric.userservice.UserServiceApplication for test class com.maveric.userservice.UserServiceApplicationTests
+2022-09-15 22:38:23.941  INFO 152224 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2022-09-15 22:38:23.942  INFO 152224 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@2212e291, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5af56240, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@2314cd97, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@51dbed72, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@64e89bb2, org.springframework.test.context.support.DirtiesContextTestExecutionListener@15fe020d, org.springframework.test.context.transaction.TransactionalTestExecutionListener@10830d50, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@1e3dc24f, org.springframework.test.context.event.EventPublishingTestExecutionListener@3ea8ff31, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@5ba36c83, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@5342032a, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@239d9cb7, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@5a35ae82, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@1ab21633, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@59aa1d1c]
+2022-09-15 22:38:24.596  INFO 152224 --- [main] c.m.u.UserServiceApplicationTests        : Starting UserServiceApplicationTests using Java 18.0.2.1 on MAVLT1146 with PID 152224 (started by rajamanikandanso in E:\maveric_bank_app\user-service)
+2022-09-15 22:38:24.597  INFO 152224 --- [main] c.m.u.UserServiceApplicationTests        : No active profile set, falling back to 1 default profile: "default"
+2022-09-15 22:38:25.687  INFO 152224 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-09-15 22:38:25.838  INFO 152224 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 126 ms. Found 1 JPA repository interfaces.
+2022-09-15 22:38:26.415  INFO 152224 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=9d701f13-5ff8-3688-b69d-9efbec10988f
+2022-09-15 22:38:27.226  INFO 152224 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-09-15 22:38:27.464  INFO 152224 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.10.Final
+2022-09-15 22:38:27.646  INFO 152224 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-09-15 22:38:28.041  INFO 152224 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-09-15 22:38:29.515  INFO 152224 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-09-15 22:38:29.580  INFO 152224 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2022-09-15 22:38:30.346  WARN 152224 --- [main] org.hibernate.id.UUIDHexGenerator        : HHH000409: Using org.hibernate.id.UUIDHexGenerator which does not generate IETF RFC 4122 compliant UUID values; consider using org.hibernate.id.UUIDGenerator instead
+2022-09-15 22:38:31.844  INFO 152224 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-09-15 22:38:31.882  INFO 152224 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-09-15 22:38:33.572  WARN 152224 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-09-15 22:38:35.311  INFO 152224 --- [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2022-09-15 22:38:36.241  WARN 152224 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2022-09-15 22:38:36.368  INFO 152224 --- [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2022-09-15 22:38:36.736  INFO 152224 --- [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2022-09-15 22:38:36.756  INFO 152224 --- [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-09-15 22:38:36.859  INFO 152224 --- [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2022-09-15 22:38:36.860  INFO 152224 --- [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2022-09-15 22:38:36.860  INFO 152224 --- [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2022-09-15 22:38:36.860  INFO 152224 --- [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2022-09-15 22:38:36.860  INFO 152224 --- [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2022-09-15 22:38:36.861  INFO 152224 --- [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2022-09-15 22:38:36.861  INFO 152224 --- [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2022-09-15 22:38:37.769  INFO 152224 --- [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2022-09-15 22:38:37.778  INFO 152224 --- [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2022-09-15 22:38:37.787  INFO 152224 --- [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2022-09-15 22:38:37.802  INFO 152224 --- [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1663261717799 with initial instances count: 6
+2022-09-15 22:38:37.810  INFO 152224 --- [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application USER-SERVICE with eureka with status UP
+2022-09-15 22:38:37.812  INFO 152224 --- [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1663261717812, current=UP, previous=STARTING]
+2022-09-15 22:38:37.817  INFO 152224 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/user-service:49f4d741-4df7-457b-bf7f-e15ea75c4f22: registering service...
+2022-09-15 22:38:37.835  INFO 152224 --- [main] c.m.u.UserServiceApplicationTests        : Started UserServiceApplicationTests in 13.889 seconds (JVM running for 34.41)
+2022-09-15 22:38:37.896  INFO 152224 --- [SpringApplicationShutdownHook] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application USER-SERVICE with eureka with status DOWN
+2022-09-15 22:38:37.897  INFO 152224 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1663261717897, current=DOWN, previous=UP]
+2022-09-15 22:38:37.901  INFO 152224 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/user-service:49f4d741-4df7-457b-bf7f-e15ea75c4f22 - registration status: 204
+2022-09-15 22:38:37.901  INFO 152224 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/user-service:49f4d741-4df7-457b-bf7f-e15ea75c4f22: registering service...
+2022-09-15 22:38:37.908  INFO 152224 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/user-service:49f4d741-4df7-457b-bf7f-e15ea75c4f22 - registration status: 204
+2022-09-15 22:38:37.909  INFO 152224 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-09-15 22:38:37.931  INFO 152224 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-09-15 22:38:37.997  INFO 152224 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-09-15 22:38:37.998  INFO 152224 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2022-09-15 22:38:41.006  INFO 152224 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2022-09-15 22:38:41.013  INFO 152224 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/user-service:49f4d741-4df7-457b-bf7f-e15ea75c4f22 - deregister  status: 200
+2022-09-15 22:38:41.019  INFO 152224 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+2022-09-15 22:55:26.673  INFO 180032 --- [main] c.m.u.c.UserServiceControllerTest        : Starting UserServiceControllerTest using Java 18.0.2.1 on MAVLT1146 with PID 180032 (started by rajamanikandanso in E:\maveric_bank_app\user-service)
+2022-09-15 22:55:26.678  INFO 180032 --- [main] c.m.u.c.UserServiceControllerTest        : No active profile set, falling back to 1 default profile: "default"
+2022-09-15 22:55:31.370  INFO 180032 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2022-09-15 22:55:31.370  INFO 180032 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2022-09-15 22:55:31.372  INFO 180032 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2022-09-15 22:55:31.447  INFO 180032 --- [main] c.m.u.c.UserServiceControllerTest        : Started UserServiceControllerTest in 7.319 seconds (JVM running for 10.609)
+2022-09-15 22:55:32.002 ERROR 180032 --- [main] c.m.u.advice.GlobalControllerAdvice      : Cannot invoke "com.maveric.userservice.dto.UserDto.getId()" because "userDetails" is null
+2022-09-15 23:00:11.369  INFO 176292 --- [main] c.m.u.c.UserServiceControllerTest        : Starting UserServiceControllerTest using Java 18.0.2.1 on MAVLT1146 with PID 176292 (started by rajamanikandanso in E:\maveric_bank_app\user-service)
+2022-09-15 23:00:11.378  INFO 176292 --- [main] c.m.u.c.UserServiceControllerTest        : No active profile set, falling back to 1 default profile: "default"
+2022-09-15 23:00:19.112  INFO 176292 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2022-09-15 23:00:19.113  INFO 176292 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2022-09-15 23:00:19.116  INFO 176292 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
+2022-09-15 23:00:19.208  INFO 176292 --- [main] c.m.u.c.UserServiceControllerTest        : Started UserServiceControllerTest in 11.548 seconds (JVM running for 15.331)
+2022-09-15 23:00:20.002 ERROR 176292 --- [main] c.m.u.advice.GlobalControllerAdvice      : Cannot invoke "com.maveric.userservice.dto.UserDto.getEmail()" because "userDetails" is null
+2022-09-15 23:08:04.448  INFO 118508 --- [main] c.m.u.c.UserServiceControllerTest        : Starting UserServiceControllerTest using Java 18.0.2.1 on MAVLT1146 with PID 118508 (started by rajamanikandanso in E:\maveric_bank_app\user-service)
+2022-09-15 23:08:04.459  INFO 118508 --- [main] c.m.u.c.UserServiceControllerTest        : No active profile set, falling back to 1 default profile: "default"
+2022-09-15 23:08:10.864  INFO 118508 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2022-09-15 23:08:10.865  INFO 118508 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2022-09-15 23:08:10.869  INFO 118508 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
+2022-09-15 23:08:10.964  INFO 118508 --- [main] c.m.u.c.UserServiceControllerTest        : Started UserServiceControllerTest in 10.409 seconds (JVM running for 14.463)
+2022-09-15 23:08:11.677  INFO 118508 --- [main] c.m.u.controller.UserServiceController   : User created shreeharsha06@gmail.com
+2022-09-15 23:11:18.913  INFO 49440 --- [main] c.m.u.c.UserServiceControllerTest        : Starting UserServiceControllerTest using Java 18.0.2.1 on MAVLT1146 with PID 49440 (started by rajamanikandanso in E:\maveric_bank_app\user-service)
+2022-09-15 23:11:18.920  INFO 49440 --- [main] c.m.u.c.UserServiceControllerTest        : No active profile set, falling back to 1 default profile: "default"
+2022-09-15 23:11:26.238  INFO 49440 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2022-09-15 23:11:26.240  INFO 49440 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2022-09-15 23:11:26.244  INFO 49440 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
+2022-09-15 23:11:26.336  INFO 49440 --- [main] c.m.u.c.UserServiceControllerTest        : Started UserServiceControllerTest in 13.204 seconds (JVM running for 18.794)
+2022-09-15 23:11:27.086 ERROR 49440 --- [main] c.m.u.advice.GlobalControllerAdvice      : null
+2022-09-15 23:11:27.216 ERROR 49440 --- [main] c.m.u.advice.GlobalControllerAdvice      : User id mismatch or not authorized user
+2022-09-15 23:11:27.259 ERROR 49440 --- [main] c.m.u.advice.GlobalControllerAdvice      : Could not find user raj@gmail.com
+2022-09-15 23:11:27.328 ERROR 49440 --- [main] c.m.u.advice.GlobalControllerAdvice      : Could not find user 2c9cf08182f36d5a0182f3731f210000
+2022-09-15 23:11:27.358 ERROR 49440 --- [main] c.m.u.advice.GlobalControllerAdvice      : Required request header 'userId' for method parameter type String is not present
+2022-09-15 23:11:27.395 ERROR 49440 --- [main] c.m.u.advice.GlobalControllerAdvice      : Required request parameter 'pageSize' for method parameter type int is not present
+2022-09-15 23:11:27.427  INFO 49440 --- [main] c.m.u.controller.UserServiceController   : User found by Email shreeharsha06@gmail.com
+2022-09-15 23:11:27.495  INFO 49440 --- [main] c.m.u.controller.UserServiceController   : User created shreeharsha06@gmail.com
+2022-09-15 23:11:27.520  INFO 49440 --- [main] c.m.u.controller.UserServiceController   : User deleted 2c9cf08182f36d5a0182f3731f210000
+2022-09-15 23:11:27.550  INFO 49440 --- [main] c.m.u.controller.UserServiceController   : Fetched all users
+2022-09-15 23:11:27.572  INFO 49440 --- [main] c.m.u.controller.UserServiceController   : User found 2c9cf08182f36d5a0182f3731f210000
+2022-09-15 23:11:27.614 ERROR 49440 --- [main] c.m.u.advice.GlobalControllerAdvice      : firstname shouldn't be empty
+2022-09-15 23:11:27.637 ERROR 49440 --- [main] c.m.u.advice.GlobalControllerAdvice      : firstname shouldn't be empty
+2022-09-15 23:11:27.664  INFO 49440 --- [main] c.m.u.controller.UserServiceController   : User updated 2c9cf08182f36d5a0182f3731f210000
+2022-09-15 23:11:27.665 ERROR 49440 --- [main] c.m.u.advice.GlobalControllerAdvice      : User id mismatch or not authorized user
+2022-09-15 23:11:27.758 ERROR 49440 --- [main] c.m.u.advice.GlobalControllerAdvice      : Could not find user User Not found
+2022-09-15 23:11:27.791 ERROR 49440 --- [main] c.m.u.advice.GlobalControllerAdvice      : user id mismatch
+2022-09-15 23:11:27.797 ERROR 49440 --- [main] c.m.u.advice.GlobalControllerAdvice      : Email id already Exist Email already present
+2022-09-15 23:11:28.101  INFO 49440 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.maveric.userservice.UserServiceApplicationTests], using SpringBootContextLoader
+2022-09-15 23:11:28.103  INFO 49440 --- [main] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.maveric.userservice.UserServiceApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+2022-09-15 23:11:28.104  INFO 49440 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.maveric.userservice.UserServiceApplicationTests]: UserServiceApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2022-09-15 23:11:28.117  INFO 49440 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.maveric.userservice.UserServiceApplication for test class com.maveric.userservice.UserServiceApplicationTests
+2022-09-15 23:11:28.126  INFO 49440 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2022-09-15 23:11:28.127  INFO 49440 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@6f4f2cc0, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@5308e79d, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@2431050d, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@441016d6, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@522f0bb8, org.springframework.test.context.support.DirtiesContextTestExecutionListener@468f2a6f, org.springframework.test.context.transaction.TransactionalTestExecutionListener@6a3a56de, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@2ed84be9, org.springframework.test.context.event.EventPublishingTestExecutionListener@400e741, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@3be369fc, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@35744f8, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@6fbcc078, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@6c851821, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@4c0930c4, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@75c0cd39]
+2022-09-15 23:11:28.884  INFO 49440 --- [main] c.m.u.UserServiceApplicationTests        : Starting UserServiceApplicationTests using Java 18.0.2.1 on MAVLT1146 with PID 49440 (started by rajamanikandanso in E:\maveric_bank_app\user-service)
+2022-09-15 23:11:28.885  INFO 49440 --- [main] c.m.u.UserServiceApplicationTests        : No active profile set, falling back to 1 default profile: "default"
+2022-09-15 23:11:30.083  INFO 49440 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-09-15 23:11:30.256  INFO 49440 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 126 ms. Found 1 JPA repository interfaces.
+2022-09-15 23:11:30.853  INFO 49440 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=9d701f13-5ff8-3688-b69d-9efbec10988f
+2022-09-15 23:11:31.793  INFO 49440 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-09-15 23:11:31.962  INFO 49440 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.10.Final
+2022-09-15 23:11:32.065  INFO 49440 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-09-15 23:11:32.375  INFO 49440 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-09-15 23:11:33.584  INFO 49440 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-09-15 23:11:33.671  INFO 49440 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2022-09-15 23:11:34.205  WARN 49440 --- [main] org.hibernate.id.UUIDHexGenerator        : HHH000409: Using org.hibernate.id.UUIDHexGenerator which does not generate IETF RFC 4122 compliant UUID values; consider using org.hibernate.id.UUIDGenerator instead
+2022-09-15 23:11:35.097  INFO 49440 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-09-15 23:11:35.119  INFO 49440 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-09-15 23:11:36.232  WARN 49440 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-09-15 23:11:37.616  INFO 49440 --- [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2022-09-15 23:11:38.612  WARN 49440 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2022-09-15 23:11:38.733  INFO 49440 --- [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2022-09-15 23:11:39.087  INFO 49440 --- [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2022-09-15 23:11:39.117  INFO 49440 --- [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-09-15 23:11:39.244  INFO 49440 --- [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2022-09-15 23:11:39.245  INFO 49440 --- [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2022-09-15 23:11:39.245  INFO 49440 --- [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2022-09-15 23:11:39.246  INFO 49440 --- [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2022-09-15 23:11:39.246  INFO 49440 --- [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2022-09-15 23:11:39.247  INFO 49440 --- [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2022-09-15 23:11:39.247  INFO 49440 --- [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2022-09-15 23:11:40.538  INFO 49440 --- [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2022-09-15 23:11:40.548  INFO 49440 --- [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2022-09-15 23:11:40.559  INFO 49440 --- [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2022-09-15 23:11:40.575  INFO 49440 --- [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1663263700571 with initial instances count: 6
+2022-09-15 23:11:40.584  INFO 49440 --- [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application USER-SERVICE with eureka with status UP
+2022-09-15 23:11:40.586  INFO 49440 --- [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1663263700586, current=UP, previous=STARTING]
+2022-09-15 23:11:40.592  INFO 49440 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/user-service:57d687f3-7f09-4866-960f-b9dfa1984b75: registering service...
+2022-09-15 23:11:40.610  INFO 49440 --- [main] c.m.u.UserServiceApplicationTests        : Started UserServiceApplicationTests in 12.478 seconds (JVM running for 33.069)
+2022-09-15 23:11:40.667  INFO 49440 --- [SpringApplicationShutdownHook] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application USER-SERVICE with eureka with status DOWN
+2022-09-15 23:11:40.668  INFO 49440 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1663263700668, current=DOWN, previous=UP]
+2022-09-15 23:11:40.678  INFO 49440 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-09-15 23:11:40.691  INFO 49440 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-09-15 23:11:40.747  INFO 49440 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-09-15 23:11:40.749  INFO 49440 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2022-09-15 23:11:40.845  INFO 49440 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/user-service:57d687f3-7f09-4866-960f-b9dfa1984b75 - registration status: 204
+2022-09-15 23:11:40.846  INFO 49440 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/user-service:57d687f3-7f09-4866-960f-b9dfa1984b75: registering service...
+2022-09-15 23:11:40.853  INFO 49440 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/user-service:57d687f3-7f09-4866-960f-b9dfa1984b75 - registration status: 204
+2022-09-15 23:11:40.857  INFO 49440 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2022-09-15 23:11:40.877  INFO 49440 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/user-service:57d687f3-7f09-4866-960f-b9dfa1984b75 - deregister  status: 200
+2022-09-15 23:11:40.892  INFO 49440 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
+2022-09-15 23:13:14.113  INFO 110184 --- [main] c.m.u.c.UserServiceControllerTest        : Starting UserServiceControllerTest using Java 18.0.2.1 on MAVLT1146 with PID 110184 (started by rajamanikandanso in E:\maveric_bank_app\user-service)
+2022-09-15 23:13:14.122  INFO 110184 --- [main] c.m.u.c.UserServiceControllerTest        : No active profile set, falling back to 1 default profile: "default"
+2022-09-15 23:13:19.901  INFO 110184 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2022-09-15 23:13:19.902  INFO 110184 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2022-09-15 23:13:19.904  INFO 110184 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2022-09-15 23:13:20.104  INFO 110184 --- [main] c.m.u.c.UserServiceControllerTest        : Started UserServiceControllerTest in 9.005 seconds (JVM running for 12.144)
+2022-09-15 23:13:20.412 ERROR 110184 --- [main] c.m.u.advice.GlobalControllerAdvice      : Could not find user 2c9cf08182f36d5a0182f3731f2100
+2022-09-15 23:14:07.374  INFO 82692 --- [main] c.m.u.c.UserServiceControllerTest        : Starting UserServiceControllerTest using Java 18.0.2.1 on MAVLT1146 with PID 82692 (started by rajamanikandanso in E:\maveric_bank_app\user-service)
+2022-09-15 23:14:07.381  INFO 82692 --- [main] c.m.u.c.UserServiceControllerTest        : No active profile set, falling back to 1 default profile: "default"
+2022-09-15 23:14:12.065  INFO 82692 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2022-09-15 23:14:12.065  INFO 82692 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2022-09-15 23:14:12.069  INFO 82692 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 3 ms
+2022-09-15 23:14:12.160  INFO 82692 --- [main] c.m.u.c.UserServiceControllerTest        : Started UserServiceControllerTest in 7.266 seconds (JVM running for 10.005)
+2022-09-15 23:14:12.991  INFO 82692 --- [main] c.m.u.controller.UserServiceController   : User updated 2c9cf08182f36d5a0182f3731f210000
+2022-09-15 23:14:13.003 ERROR 82692 --- [main] c.m.u.advice.GlobalControllerAdvice      : User id mismatch or not authorized user
+2022-09-15 23:16:20.744  INFO 81900 --- [main] c.m.u.c.UserServiceControllerTest        : Starting UserServiceControllerTest using Java 18.0.2.1 on MAVLT1146 with PID 81900 (started by rajamanikandanso in E:\maveric_bank_app\user-service)
+2022-09-15 23:16:20.754  INFO 81900 --- [main] c.m.u.c.UserServiceControllerTest        : No active profile set, falling back to 1 default profile: "default"
+2022-09-15 23:16:27.214  INFO 81900 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2022-09-15 23:16:27.215  INFO 81900 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2022-09-15 23:16:27.218  INFO 81900 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2022-09-15 23:16:27.340  INFO 81900 --- [main] c.m.u.c.UserServiceControllerTest        : Started UserServiceControllerTest in 10.277 seconds (JVM running for 20.278)
+2022-09-15 23:16:28.272  INFO 81900 --- [main] c.m.u.controller.UserServiceController   : User updated 2c9cf08182f36d5a0182f3731f210000
+2022-09-15 23:16:28.306  INFO 81900 --- [main] c.m.u.controller.UserServiceController   : User updated 2c9cf08182f36d5a0182f3731f210000
+2022-09-15 23:17:17.521  INFO 175312 --- [main] c.m.u.c.UserServiceControllerTest        : Starting UserServiceControllerTest using Java 18.0.2.1 on MAVLT1146 with PID 175312 (started by rajamanikandanso in E:\maveric_bank_app\user-service)
+2022-09-15 23:17:17.536  INFO 175312 --- [main] c.m.u.c.UserServiceControllerTest        : No active profile set, falling back to 1 default profile: "default"
+2022-09-15 23:17:26.197  INFO 175312 --- [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2022-09-15 23:17:26.197  INFO 175312 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2022-09-15 23:17:26.200  INFO 175312 --- [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2022-09-15 23:17:26.290  INFO 175312 --- [main] c.m.u.c.UserServiceControllerTest        : Started UserServiceControllerTest in 15.3 seconds (JVM running for 21.918)
+2022-09-15 23:17:27.083 ERROR 175312 --- [main] c.m.u.advice.GlobalControllerAdvice      : null
+2022-09-15 23:17:27.165 ERROR 175312 --- [main] c.m.u.advice.GlobalControllerAdvice      : Could not find user 2c9cf08182f36d5a0182f3731f2100
+2022-09-15 23:17:27.181 ERROR 175312 --- [main] c.m.u.advice.GlobalControllerAdvice      : Could not find user raj@gmail.com
+2022-09-15 23:17:27.224 ERROR 175312 --- [main] c.m.u.advice.GlobalControllerAdvice      : Could not find user 2c9cf08182f36d5a0182f3731f210000
+2022-09-15 23:17:27.246 ERROR 175312 --- [main] c.m.u.advice.GlobalControllerAdvice      : Required request header 'userId' for method parameter type String is not present
+2022-09-15 23:17:27.267 ERROR 175312 --- [main] c.m.u.advice.GlobalControllerAdvice      : Required request parameter 'pageSize' for method parameter type int is not present
+2022-09-15 23:17:27.287  INFO 175312 --- [main] c.m.u.controller.UserServiceController   : User found by Email shreeharsha06@gmail.com
+2022-09-15 23:17:27.330  INFO 175312 --- [main] c.m.u.controller.UserServiceController   : User created shreeharsha06@gmail.com
+2022-09-15 23:17:27.352  INFO 175312 --- [main] c.m.u.controller.UserServiceController   : User deleted 2c9cf08182f36d5a0182f3731f210000
+2022-09-15 23:17:27.375  INFO 175312 --- [main] c.m.u.controller.UserServiceController   : Fetched all users
+2022-09-15 23:17:27.397  INFO 175312 --- [main] c.m.u.controller.UserServiceController   : User found 2c9cf08182f36d5a0182f3731f210000
+2022-09-15 23:17:27.430 ERROR 175312 --- [main] c.m.u.advice.GlobalControllerAdvice      : firstname shouldn't be empty
+2022-09-15 23:17:27.449 ERROR 175312 --- [main] c.m.u.advice.GlobalControllerAdvice      : firstname shouldn't be empty
+2022-09-15 23:17:27.478  INFO 175312 --- [main] c.m.u.controller.UserServiceController   : User updated 2c9cf08182f36d5a0182f3731f210000
+2022-09-15 23:17:27.479  INFO 175312 --- [main] c.m.u.controller.UserServiceController   : User updated 2c9cf08182f36d5a0182f3731f210000
+2022-09-15 23:17:27.562 ERROR 175312 --- [main] c.m.u.advice.GlobalControllerAdvice      : Could not find user User Not found
+2022-09-15 23:17:27.593 ERROR 175312 --- [main] c.m.u.advice.GlobalControllerAdvice      : user id mismatch
+2022-09-15 23:17:27.599 ERROR 175312 --- [main] c.m.u.advice.GlobalControllerAdvice      : Email id already Exist Email already present
+2022-09-15 23:17:27.913  INFO 175312 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.maveric.userservice.UserServiceApplicationTests], using SpringBootContextLoader
+2022-09-15 23:17:27.915  INFO 175312 --- [main] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.maveric.userservice.UserServiceApplicationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+2022-09-15 23:17:27.916  INFO 175312 --- [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.maveric.userservice.UserServiceApplicationTests]: UserServiceApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2022-09-15 23:17:27.926  INFO 175312 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.maveric.userservice.UserServiceApplication for test class com.maveric.userservice.UserServiceApplicationTests
+2022-09-15 23:17:27.935  INFO 175312 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+2022-09-15 23:17:27.936  INFO 175312 --- [main] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@4e614370, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@1e1ea16d, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@6da9541c, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@2157889c, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@65e92505, org.springframework.test.context.support.DirtiesContextTestExecutionListener@e97f51c, org.springframework.test.context.transaction.TransactionalTestExecutionListener@29394966, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@343727b5, org.springframework.test.context.event.EventPublishingTestExecutionListener@18dafd3b, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@2954c429, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@4a45ca1c, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@4742466e, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@83e5898, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@7c4a03a, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@63b58ff4]
+2022-09-15 23:17:28.643  INFO 175312 --- [main] c.m.u.UserServiceApplicationTests        : Starting UserServiceApplicationTests using Java 18.0.2.1 on MAVLT1146 with PID 175312 (started by rajamanikandanso in E:\maveric_bank_app\user-service)
+2022-09-15 23:17:28.644  INFO 175312 --- [main] c.m.u.UserServiceApplicationTests        : No active profile set, falling back to 1 default profile: "default"
+2022-09-15 23:17:29.693  INFO 175312 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-09-15 23:17:29.808  INFO 175312 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 96 ms. Found 1 JPA repository interfaces.
+2022-09-15 23:17:30.278  INFO 175312 --- [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=9d701f13-5ff8-3688-b69d-9efbec10988f
+2022-09-15 23:17:30.965  INFO 175312 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-09-15 23:17:31.186  INFO 175312 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.10.Final
+2022-09-15 23:17:31.352  INFO 175312 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-09-15 23:17:31.809  INFO 175312 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-09-15 23:17:33.212  INFO 175312 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-09-15 23:17:33.267  INFO 175312 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2022-09-15 23:17:34.010  WARN 175312 --- [main] org.hibernate.id.UUIDHexGenerator        : HHH000409: Using org.hibernate.id.UUIDHexGenerator which does not generate IETF RFC 4122 compliant UUID values; consider using org.hibernate.id.UUIDGenerator instead
+2022-09-15 23:17:35.220  INFO 175312 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-09-15 23:17:35.252  INFO 175312 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-09-15 23:17:36.722  WARN 175312 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2022-09-15 23:17:38.295  INFO 175312 --- [main] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2022-09-15 23:17:39.352  WARN 175312 --- [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2022-09-15 23:17:39.475  INFO 175312 --- [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2022-09-15 23:17:39.817  INFO 175312 --- [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2022-09-15 23:17:39.839  INFO 175312 --- [main] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2022-09-15 23:17:39.942  INFO 175312 --- [main] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2022-09-15 23:17:39.943  INFO 175312 --- [main] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2022-09-15 23:17:39.943  INFO 175312 --- [main] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2022-09-15 23:17:39.943  INFO 175312 --- [main] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2022-09-15 23:17:39.943  INFO 175312 --- [main] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2022-09-15 23:17:39.944  INFO 175312 --- [main] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2022-09-15 23:17:39.944  INFO 175312 --- [main] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2022-09-15 23:17:41.065  INFO 175312 --- [main] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2022-09-15 23:17:41.075  INFO 175312 --- [main] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2022-09-15 23:17:41.090  INFO 175312 --- [main] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2022-09-15 23:17:41.107  INFO 175312 --- [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1663264061102 with initial instances count: 6
+2022-09-15 23:17:41.120  INFO 175312 --- [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application USER-SERVICE with eureka with status UP
+2022-09-15 23:17:41.123  INFO 175312 --- [main] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1663264061123, current=UP, previous=STARTING]
+2022-09-15 23:17:41.130  INFO 175312 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/user-service:127b54e0-575b-45f2-8152-35cd9079430c: registering service...
+2022-09-15 23:17:41.173  INFO 175312 --- [main] c.m.u.UserServiceApplicationTests        : Started UserServiceApplicationTests in 13.232 seconds (JVM running for 36.801)
+2022-09-15 23:17:41.210  INFO 175312 --- [SpringApplicationShutdownHook] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application USER-SERVICE with eureka with status DOWN
+2022-09-15 23:17:41.211  INFO 175312 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1663264061211, current=DOWN, previous=UP]
+2022-09-15 23:17:41.243  INFO 175312 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2022-09-15 23:17:41.249  INFO 175312 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2022-09-15 23:17:41.291  INFO 175312 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2022-09-15 23:17:41.292  INFO 175312 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2022-09-15 23:17:41.340  INFO 175312 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/user-service:127b54e0-575b-45f2-8152-35cd9079430c - registration status: 204
+2022-09-15 23:17:41.341  INFO 175312 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/user-service:127b54e0-575b-45f2-8152-35cd9079430c: registering service...
+2022-09-15 23:17:41.349  INFO 175312 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/user-service:127b54e0-575b-45f2-8152-35cd9079430c - registration status: 204
+2022-09-15 23:17:41.353  INFO 175312 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2022-09-15 23:17:41.363  INFO 175312 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_USER-SERVICE/user-service:127b54e0-575b-45f2-8152-35cd9079430c - deregister  status: 200
+2022-09-15 23:17:41.376  INFO 175312 --- [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient

@@ -11,4 +11,6 @@ public final class ErrorMessageConstants {
 
     public static final String GENDER_ERROR = "Gender String should be MALE or FEMALE";
 
+    public static final String USER_ID_MISMATCH = "User id mismatch or not authorized user";
+
 }

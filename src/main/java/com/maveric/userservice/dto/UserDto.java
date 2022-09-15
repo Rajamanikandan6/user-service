@@ -35,7 +35,7 @@ public class UserDto {
     @NotBlank(message = "phoneNumber shouldn't be empty")
     private String phoneNumber;
 
-    @NotBlank
+    @NotBlank(message = "address shouldn't be empty")
     private String address;
 
     @NotBlank
@@ -45,8 +45,6 @@ public class UserDto {
     @Enumerated(EnumType.STRING)
     @GenderValidation(anyOfTheseGender = {Gender.FEMALE,Gender.MALE})
     private Gender gender;
-
-    private String role;
 
     private String password;
 }

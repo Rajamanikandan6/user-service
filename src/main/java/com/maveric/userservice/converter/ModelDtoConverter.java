@@ -21,7 +21,6 @@ public class ModelDtoConverter {
             singleUser.setPhoneNumber(fetchUser.getPhoneNumber());
             singleUser.setAddress(fetchUser.getAddress());
             singleUser.setGender(fetchUser.getGender());
-            singleUser.setRole(fetchUser.getRole());
             singleUser.setDateOfBirth(fetchUser.getDateOfBirth());
             userDto.add(singleUser);
         });
@@ -38,7 +37,6 @@ public class ModelDtoConverter {
         userDto.setPhoneNumber(user.getPhoneNumber());
         userDto.setAddress(user.getAddress());
         userDto.setGender(user.getGender());
-        userDto.setRole(user.getRole());
         userDto.setDateOfBirth(user.getDateOfBirth());
 
         return userDto;
@@ -55,7 +53,6 @@ public class ModelDtoConverter {
         userDto.setPhoneNumber(user.getPhoneNumber());
         userDto.setAddress(user.getAddress());
         userDto.setGender(user.getGender());
-        userDto.setRole(user.getRole());
         userDto.setDateOfBirth(user.getDateOfBirth());
         userDto.setPassword(user.getPassword());
 
@@ -73,7 +70,6 @@ public class ModelDtoConverter {
         user.setPhoneNumber(userDto.getPhoneNumber());
         user.setAddress(userDto.getAddress());
         user.setGender(userDto.getGender());
-        user.setRole(userDto.getRole());
         user.setDateOfBirth(userDto.getDateOfBirth());
         user.setPassword(userDto.getPassword());
 
@@ -91,8 +87,8 @@ public class ModelDtoConverter {
         user.setPhoneNumber(userDto.getPhoneNumber());
         user.setAddress(userDto.getAddress());
         user.setGender(userDto.getGender());
-        user.setRole(userDto.getRole());
         user.setDateOfBirth(userDto.getDateOfBirth());
+        user.setPassword(userDto.getPassword());
 
         return user;
 

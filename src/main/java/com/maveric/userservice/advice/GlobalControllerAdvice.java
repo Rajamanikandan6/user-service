@@ -4,6 +4,7 @@ import com.maveric.userservice.constant.ErrorMessageConstants;
 import com.maveric.userservice.controller.UserServiceController;
 import com.maveric.userservice.dto.Error;
 import com.maveric.userservice.exception.EmailDuplicationException;
+import com.maveric.userservice.exception.UserIdMismatch;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -44,6 +45,13 @@ public class GlobalControllerAdvice {
     public ResponseEntity<Error>  handleEmailDuplication(EmailDuplicationException e){
         Error error = getError(e.getMessage(),String.valueOf(HttpStatus.BAD_REQUEST.value()));
         logger.error(e.getMessage());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
+    }
+
+    @ExceptionHandler(UserIdMismatch.class)
+    public ResponseEntity<Error>  handleUserMismatch(UserIdMismatch userIdMismatch){
+        Error error = getError(userIdMismatch.getMessage(),String.valueOf(HttpStatus.BAD_REQUEST.value()));
+        logger.error(userIdMismatch.getMessage());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
     }
 

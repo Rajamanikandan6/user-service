@@ -47,7 +47,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
     //getUser
     @Test
     void shouldGetUserWhenRequestMadeToGetUser() throws Exception{
-        mvc.perform(get(API_V1_USERS+"/2c9cf08182f36d5a0182f3731f210000"))
+        mvc.perform(get(API_V1_USERS+"/2c9cf08182f36d5a0182f3731f210000").header("userId","2c9cf08182f36d5a0182f3731f210000"))
                 .andExpect(status().isOk())
                 .andDo(print());
 
@@ -55,7 +55,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
     @Test
     void shouldReturnInternalServerWhenDbReturnsError() throws Exception{
         when(userService.getUserDetails("2c9cf08182f36d5a0182f3731f210000")).thenThrow(new UserNotFoundException("2c9cf08182f36d5a0182f3731f210000"));
-        mvc.perform(get(API_V1_USERS+"/2c9cf08182f36d5a0182f3731f210000"))
+        mvc.perform(get(API_V1_USERS+"/2c9cf08182f36d5a0182f3731f210000").header("userId","2c9cf08182f36d5a0182f3731f210000"))
                 .andExpect(status().isNotFound())
                 .andDo(print());
 
@@ -96,7 +96,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
     //deleteUser
     @Test
     void shouldDeleteUserWhenRequestMadeToDeleteUser() throws Exception{
-        mvc.perform(delete(API_V1_USERS+"/2c9cf08182f36d5a0182f3731f210000"))
+        mvc.perform(delete(API_V1_USERS+"/2c9cf08182f36d5a0182f3731f210000").header("userId","2c9cf08182f36d5a0182f3731f210000"))
                 .andExpect(status().isOk())
                 .andDo(print());
 
@@ -104,7 +104,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
     @Test
     void shouldReturnInternalServerWhenDbReturnsErrorForDelete() throws Exception{
        when(userService.deleteUser("2c9cf08182f36d5a0182f3731f2100")).thenThrow(new UserNotFoundException("2c9cf08182f36d5a0182f3731f2100"));
-        mvc.perform(delete(API_V1_USERS+"/2c9cf08182f36d5a0182f3731f2100"))
+        mvc.perform(delete(API_V1_USERS+"/2c9cf08182f36d5a0182f3731f2100").header("userId","2c9cf08182f36d5a0182f3731f2100"))
                 .andExpect(status().isNotFound())
                 .andDo(print());
 
@@ -114,6 +114,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
     //createUser
      @Test
      void shouldCreateUserWhenRequestMadeToCreateUser() throws Exception{
+        when(userService.createUserDetails(any(UserDto.class))).thenReturn(getSampleDtoUser());
         mvc.perform(post(API_V1_USERS).contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(getSampleUser())))
                 .andExpect(status().isCreated())
                 .andDo(print());
@@ -147,7 +148,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
     //updateUser
     @Test
     void shouldUpdateUserWhenRequestMadeToUpdateUser() throws Exception {
-        mvc.perform(put(API_V1_USERS + "/2c9cf08182f36d5a0182f3731f210000").contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(getSampleUser())))
+        mvc.perform(put(API_V1_USERS + "/2c9cf08182f36d5a0182f3731f210000").header("userId","2c9cf08182f36d5a0182f3731f210000").contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(getSampleUser())))
                 .andExpect(status().isOk())
                 .andDo(print());
     }
@@ -177,6 +178,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 
     public User getSampleUser(){
         User user = new User();
+        user.setId("2c9cf08182f36d5a0182f3731f210000");
         user.setFirstName("raja");
         user.setLastName("s");
         user.setEmail("raja@gmail.com");
@@ -187,5 +189,18 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
         user.setPhoneNumber("9965571147");
         return user;
 
+    }
+
+    public UserDto getSampleDtoUser(){
+        UserDto user = new UserDto();
+        user.setFirstName("raja");
+        user.setLastName("s");
+        user.setEmail("shreeharsha06@gmail.com");
+        user.setPassword("12345");
+        user.setGender(Gender.MALE);
+        user.setDateOfBirth("2022-02-02");
+        user.setAddress("pollachi");
+        user.setPhoneNumber("9965571147");
+        return user;
     }
 }

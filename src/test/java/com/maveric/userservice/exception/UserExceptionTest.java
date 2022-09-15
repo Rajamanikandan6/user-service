@@ -31,4 +31,11 @@ class UserExceptionTest {
         ResponseEntity<Error> error = globalControllerAdvice.handleEmailDuplication(exception);
         assertEquals("400",error.getBody().getCode());
     }
+
+    @Test
+    void handleUserIdMismatchException() {
+        UserIdMismatch exception = new UserIdMismatch("user id mismatch");
+        ResponseEntity<Error> error = globalControllerAdvice.handleUserMismatch(exception);
+        assertEquals("400",error.getBody().getCode());
+    }
 }

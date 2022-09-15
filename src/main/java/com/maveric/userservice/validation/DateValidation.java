@@ -9,7 +9,7 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Constraint(validatedBy = { DateValidatorImplementation.class })
 public @interface DateValidation {
-    String message() default "dateOfBirth should not be future date";
+    String message() default "dateOfBirth is not valid or given future date";
 
     Class<?>[] groups() default {};
 

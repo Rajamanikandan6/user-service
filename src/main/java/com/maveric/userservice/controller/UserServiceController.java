@@ -1,6 +1,8 @@
 package com.maveric.userservice.controller;
 
+import com.maveric.userservice.constant.ErrorMessageConstants;
 import com.maveric.userservice.dto.UserDto;
+import com.maveric.userservice.exception.UserIdMismatch;
 import com.maveric.userservice.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,6 +24,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 
 import javax.validation.Valid;
+
+import static com.maveric.userservice.constant.ErrorMessageConstants.USER_ID_MISMATCH;
+
 @RestController
 @RequestMapping("/api/v1")
 public class UserServiceController {
@@ -35,10 +40,15 @@ public class UserServiceController {
     private static final Logger logger = LoggerFactory.getLogger(UserServiceController.class);
 
     @GetMapping("/users/{userId}")
-    public ResponseEntity<UserDto> getUserDetails(@PathVariable String userId){
-        UserDto userDetails = userService.getUserDetails(userId);
-        logger.info("User found {}",userId);
-        return ResponseEntity.status(HttpStatus.OK).body(userDetails);
+    public ResponseEntity<UserDto> getUserDetails(@PathVariable String userId,@RequestHeader(value = "userId") String headerUserId){
+        if(userId.equals(headerUserId)) {
+            UserDto userDetails = userService.getUserDetails(userId);
+            logger.info("User found {}", userId);
+            return ResponseEntity.status(HttpStatus.OK).body(userDetails);
+        }else{
+            logger.info("User id mismatch");
+            throw new UserIdMismatch(USER_ID_MISMATCH);
+        }
     }
     @GetMapping("/users")
     public ResponseEntity<List<UserDto>> getUsers(@RequestParam int page , @RequestParam int pageSize) {
@@ -54,22 +64,31 @@ public class UserServiceController {
         return ResponseEntity.status(HttpStatus.OK).body(userDetails);
     }
     @DeleteMapping("/users/{userId}")
-    public ResponseEntity<Object> deleteUserDetails(@PathVariable String userId) {
-        String desc = userService.deleteUser(userId);
-        logger.info("User deleted {}" ,userId);
-        return ResponseEntity.status(HttpStatus.OK).body(desc);
+    public ResponseEntity<Object> deleteUserDetails(@PathVariable String userId,@RequestHeader(value = "userId") String headerUserId) {
+        if(userId.equals(headerUserId)) {
+            String desc = userService.deleteUser(userId);
+            logger.info("User deleted {}", userId);
+            return ResponseEntity.status(HttpStatus.OK).body(desc);
+        }else{
+            throw new UserIdMismatch(USER_ID_MISMATCH);
+        }
     }
     @PutMapping("/users/{userId}")
-    public ResponseEntity<UserDto> updateUser(@Valid @RequestBody UserDto userDto, @PathVariable String userId) {
-        UserDto userDetails = userService.updateUserDetails(userDto, userId);
-        logger.info("User updated {}" ,userId);
-        return ResponseEntity.status(HttpStatus.OK).body(userDetails);
+    public ResponseEntity<UserDto> updateUser(@Valid @RequestBody UserDto userDto, @PathVariable String userId,@RequestHeader(value = "userId") String headerUserId) {
+        logger.info("User updated {}", headerUserId);
+        if(headerUserId.equals(userId) && userId.equals(userDto.getId())) {
+            UserDto userDetails = userService.updateUserDetails(userDto, userId);
+            logger.info("User updated {}", userId);
+            return ResponseEntity.status(HttpStatus.OK).body(userDetails);
+        }else{
+            throw new UserIdMismatch(USER_ID_MISMATCH);
+        }
     }
     @PostMapping("/users")
     public ResponseEntity<UserDto> createUser(@Valid @RequestBody UserDto userDto){
         userDto.setPassword(this.bCryptPasswordEncoder.encode(userDto.getPassword()));
         UserDto userDetails = userService.createUserDetails(userDto);
-        logger.info("User created {}" ,userDetails.getId());
+        logger.info("User created {}" ,userDetails.getEmail());
         return ResponseEntity.status(HttpStatus.CREATED).body(userDetails);
     }
 }
