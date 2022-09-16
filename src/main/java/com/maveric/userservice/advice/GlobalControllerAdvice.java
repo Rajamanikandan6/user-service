@@ -1,7 +1,6 @@
 package com.maveric.userservice.advice;
 
 import com.maveric.userservice.constant.ErrorMessageConstants;
-import com.maveric.userservice.controller.UserServiceController;
 import com.maveric.userservice.dto.Error;
 import com.maveric.userservice.exception.EmailDuplicationException;
 import com.maveric.userservice.exception.UserIdMismatch;

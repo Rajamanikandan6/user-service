@@ -1,6 +1,5 @@
 package com.maveric.userservice.controller;
 
-import com.maveric.userservice.constant.ErrorMessageConstants;
 import com.maveric.userservice.dto.UserDto;
 import com.maveric.userservice.exception.UserIdMismatch;
 import com.maveric.userservice.service.UserService;
