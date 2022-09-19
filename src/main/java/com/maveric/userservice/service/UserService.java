@@ -73,7 +73,7 @@ public class UserService {
     }
 
     public String deleteUser(String userId){
-        userRepository.findById(userId).orElseThrow(() -> new UserNotFoundException(userId));
+        userRepository.findById(userId);
         userRepository.deleteById(userId);
         return SuccessMessageConstant.SUCCESS_DELETE_USER;
     }
