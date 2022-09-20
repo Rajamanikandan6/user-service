@@ -2,13 +2,11 @@ package com.maveric.userservice.exception;
 
 import com.maveric.userservice.advice.GlobalControllerAdvice;
 import com.maveric.userservice.dto.Error;
-import com.maveric.userservice.service.UserService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.MethodArgumentNotValidException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
