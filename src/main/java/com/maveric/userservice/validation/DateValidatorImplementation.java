@@ -22,10 +22,7 @@ public class DateValidatorImplementation implements ConstraintValidator <DateVal
         }
         dateFormat.format(date1);
         dateFormat.format(date2);
-        if(date1.compareTo(date2) > 0)
-            return true;
-        else
-            return false;
+        return date1.compareTo(date2) > 0 ;
 
     }
 }

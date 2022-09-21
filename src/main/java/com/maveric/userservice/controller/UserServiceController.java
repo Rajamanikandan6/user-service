@@ -1,6 +1,7 @@
 package com.maveric.userservice.controller;
 
 import com.maveric.userservice.dto.UserDto;
+import com.maveric.userservice.dto.UserEmailDto;
 import com.maveric.userservice.exception.UserIdMismatch;
 import com.maveric.userservice.service.UserService;
 import org.slf4j.Logger;
@@ -57,8 +58,8 @@ public class UserServiceController {
     }
 
     @GetMapping("/users/getUserByEmail/{emailId}")
-    public ResponseEntity<UserDto> getUserDetailsByEmail(@PathVariable String emailId){
-        UserDto userDetails = userService.getUserDetailsByEmail(emailId);
+    public ResponseEntity<UserEmailDto> getUserDetailsByEmail(@PathVariable String emailId){
+        UserEmailDto userDetails = userService.getUserDetailsByEmail(emailId);
         logger.info("User found by Email {}" ,emailId);
         return ResponseEntity.status(HttpStatus.OK).body(userDetails);
     }

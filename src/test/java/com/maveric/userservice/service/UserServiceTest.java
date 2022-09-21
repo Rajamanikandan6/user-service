@@ -3,6 +3,7 @@ package com.maveric.userservice.service;
 import com.maveric.userservice.constant.Gender;
 import com.maveric.userservice.converter.ModelDtoConverter;
 import com.maveric.userservice.dto.UserDto;
+import com.maveric.userservice.dto.UserEmailDto;
 import com.maveric.userservice.model.User;
 import com.maveric.userservice.repository.UserRepository;
 import org.junit.jupiter.api.Test;
@@ -68,9 +69,9 @@ import static org.junit.jupiter.api.Assertions.*;
     @Test
     void shouldReturnUserWhenGetUserByEmailInvoked() throws Exception {
         when(mockedUserRepository.findByEmail("shreeharsha06@gmail.com")).thenReturn(Optional.of(getSampleUser()));
-        when(modelDtoConverter.entityToDtoForEmail(any(User.class))).thenReturn(getSampleDtoUser());
+        when(modelDtoConverter.entityToDtoForEmail(any(User.class))).thenReturn(getSampleEmailDtoUser());
 
-        UserDto user = userService.getUserDetailsByEmail("shreeharsha06@gmail.com");
+        UserEmailDto user = userService.getUserDetailsByEmail("shreeharsha06@gmail.com");
 
         assertNotNull(user);
         assertSame(user.getEmail(),getSampleUser().getEmail());
@@ -151,6 +152,19 @@ import static org.junit.jupiter.api.Assertions.*;
 
     public UserDto getSampleDtoUser(){
         UserDto user = new UserDto();
+        user.setFirstName("raja");
+        user.setLastName("s");
+        user.setEmail("shreeharsha06@gmail.com");
+        user.setPassword("12345");
+        user.setGender(Gender.MALE);
+        user.setDateOfBirth("2022-02-02");
+        user.setAddress("pollachi");
+        user.setPhoneNumber("9965571147");
+        return user;
+    }
+
+    public UserEmailDto getSampleEmailDtoUser(){
+        UserEmailDto user = new UserEmailDto();
         user.setFirstName("raja");
         user.setLastName("s");
         user.setEmail("shreeharsha06@gmail.com");

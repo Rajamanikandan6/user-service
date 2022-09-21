@@ -3,6 +3,7 @@ package com.maveric.userservice.converter;
 import com.maveric.userservice.constant.Gender;
 import com.maveric.userservice.dto.Error;
 import com.maveric.userservice.dto.UserDto;
+import com.maveric.userservice.dto.UserEmailDto;
 import com.maveric.userservice.exception.UserNotFoundException;
 import com.maveric.userservice.model.User;
 import org.junit.jupiter.api.Test;
@@ -37,8 +38,8 @@ class ModelToDtoTest {
     @Test
     void handleEntityToDtoEmail() {
         User user =getSampleUser();
-        UserDto userDto = modelDtoConverter.entityToDtoForEmail(user);
-        assertNotNull(userDto.getEmail());
+        UserEmailDto userEmailDto = modelDtoConverter.entityToDtoForEmail(user);
+        assertNotNull(userEmailDto.getEmail());
     }
 
     @Test
