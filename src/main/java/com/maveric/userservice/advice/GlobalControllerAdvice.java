@@ -1,6 +1,6 @@
 package com.maveric.userservice.advice;
 
-import com.maveric.userservice.constant.ErrorMessageConstants;
+import com.maveric.userservice.constant.ErrorAndSuccessMessageConstants;
 import com.maveric.userservice.dto.Error;
 import com.maveric.userservice.exception.EmailDuplicationException;
 import com.maveric.userservice.exception.UserIdMismatch;
@@ -56,8 +56,8 @@ public class GlobalControllerAdvice {
 
     @ExceptionHandler(HttpMessageNotReadableException.class)
     public ResponseEntity<Error> handleFormatException(HttpMessageNotReadableException httpMessageNotReadableException){
-        Error error = getError(ErrorMessageConstants.GENDER_ERROR,String.valueOf(HttpStatus.BAD_REQUEST));
-        logger.error(ErrorMessageConstants.GENDER_ERROR);
+        Error error = getError(ErrorAndSuccessMessageConstants.GENDER_ERROR,String.valueOf(HttpStatus.BAD_REQUEST));
+        logger.error(ErrorAndSuccessMessageConstants.GENDER_ERROR);
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
     }
 

@@ -1,5 +1,6 @@
 package com.maveric.userservice.service;
 
+import com.maveric.userservice.constant.ErrorAndSuccessMessageConstants;
 import com.maveric.userservice.converter.ModelDtoConverter;
 import com.maveric.userservice.dto.UserDto;
 import com.maveric.userservice.dto.UserEmailDto;
@@ -12,7 +13,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import java.util.List;
-import com.maveric.userservice.constant.SuccessMessageConstant;
 
 import java.util.Optional;
 @Service
@@ -76,6 +76,6 @@ public class UserService {
     public String deleteUser(String userId){
         userRepository.findById(userId);
         userRepository.deleteById(userId);
-        return SuccessMessageConstant.SUCCESS_DELETE_USER;
+        return ErrorAndSuccessMessageConstants.SUCCESS_DELETE_USER;
     }
 }
