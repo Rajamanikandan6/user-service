@@ -12,12 +12,14 @@ public final class ErrorAndSuccessMessageConstants {
     public static final String GENDER_ERROR = "Gender String should be MALE or FEMALE";
 
     public static final String USER_ID_MISMATCH = "User id mismatch or not authorized user";
+    public static final String SUCCESS_DELETE_USER = "User Deleted Successfully";
     public static final String USER_FOUND = "User found ";
     public static final String USER_MISMATCH = "User id mismatch";
     public static final String ALL_USER = "Fetched all users";
     public static final String USER_FOUND_BY_EMAIL = "User found by Email ";
     public static final String USER_DELETE = "User deleted";
     public static final String USER_UPDATE = "User updated ";
+    public static final String USER_CREATE = "User created ";
     public static final String LASTNAME_BLANK_ERROR = "lastname shouldn't be empty";
     public static final String FIRST_BLANK_ERROR = "firstname shouldn't be empty";
     public static final String EMAIL_BLANK_ERROR = "email should not be empty";
