@@ -1,5 +1,6 @@
 package com.maveric.userservice.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.maveric.userservice.constant.Gender;
 import com.maveric.userservice.validation.DateValidation;
 import com.maveric.userservice.validation.GenderValidation;
@@ -46,5 +47,6 @@ public class UserDto {
     @GenderValidation(anyOfTheseGender = {Gender.FEMALE,Gender.MALE})
     private Gender gender;
 
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 }
